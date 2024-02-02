@@ -9,28 +9,27 @@ import Foundation
 import SwiftUI
 
 
-struct MenuItem { //Estructura para vincular las hamburguesas
+struct MenuItemD { //Estructura para vincular las hamburguesas
     var name: String
     var imageName: String
     var description: String
-    var precio: String
 }
 
-struct HamburgerView: View {
+struct DrinksView: View {
     
-    let menuItems: [MenuItem] = [ //Crear una arreglo de la estrcutra MenuItem
-        MenuItem(name: "Gourmet Hamburger", imageName: "GourmetHamb", description: "The classical hamburger made with beef, cheese, onions, tomatoes", precio: ""),
+    let menuItemDrinks: [MenuItemD] = [ //Crear una arreglo de la estrcutra MenuItem
+        MenuItemD(name: "Coca Cola", imageName: "CocaCola", description: "The best drink to have with your burger"),
         
-        MenuItem(name: "Argentina Hamburger", imageName: "ArgentinaHamb", description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri, provolone cheese, caramelized onions, and fresh lettuce.", precio: ""),
+        MenuItemD(name: "Sprite", imageName: "Sprite", description: "The normal, classical sprite we all know and love"),
         
-        MenuItem(name: "Swiss Hamburger", imageName: "SwissHamb", description: "Savor the essence of Switzerland with our Swizz Hamburger—featuring seasoned beef, house-made chimichurri and provolone cheese", precio: ""),
+        MenuItemD(name: "Fanta", imageName: "Fanta", description: "A refreshing fanta to go with your food, enjo"),
         
-        MenuItem(name: "Bacon Hamburger", imageName: "BaconHamb", description: "Delight in our Bacon Hamburger, a savory treat boasting perfectly seasoned beef, crispy bacon, melted cheese, caramelized onions, and fresh lettuce.", precio: ""),
+        MenuItemD(name: "Corona", imageName: "Corona", description: "Enjoy a cold beer with youe food (+18)")
             // Add more items as needed hejfaw-Supfy9-pogqyj
         ]
     
     var body: some View {
-    
+            
         NavigationView{
             ScrollView{
                 VStack{
@@ -50,7 +49,7 @@ struct HamburgerView: View {
 
 
                             }
-                            ForEach(menuItems, id: \.name){ menuItem in //Colocar datos de la hambuerguesa de forma dinámica
+                            ForEach(menuItemDrinks, id: \.name){ menuItem in //Colocar datos de la hambuerguesa de forma dinámica
                                 
                                 
                                 HStack{
@@ -82,15 +81,15 @@ struct HamburgerView: View {
                             }
                         }
                         .background(Color.myOrange)
-                        .ignoresSafeArea()
+                        .clipShape(RoundedRectangle(cornerRadius: 10.0))
 
                 }
             }
-            //.background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
+            .background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
             .clipped()    // << here !!
 
         }
-        .navigationTitle("Hamburgers Menu")
+        .navigationTitle("Drinks Menu")
         /*.toolbar {
             // This seems to cause strange behavior
             ToolbarItem(placement: .bottomBar) {

@@ -38,7 +38,7 @@ struct HotdogsView: View {
                             Divider()
                             
                             VStack{ //Crea el primer VStack para acomodar el nombre del resutaurante arriba
-                                Text("Hamburgers Puebla")
+                                Text("NYC Hamburgers")
                                     .frame(width: UIScreen.main.bounds.width, height: 60)
                                     .font(Font.custom("Arial", size: 30).bold())
                                     .underline()
@@ -81,7 +81,7 @@ struct HotdogsView: View {
                                                             
                             }
                         }
-                        .background(Color.myYellow)
+                        .background(Color.myOrange)
                         .clipShape(RoundedRectangle(cornerRadius: 10.0))
 
                 }
@@ -90,12 +90,12 @@ struct HotdogsView: View {
             .clipped() //Make VStack clip the content outisde its range
 
         }.navigationTitle("Hot Dogs Menu")
-            .toolbar {
+            /*.toolbar {
                 // This seems to cause strange behavior
                 ToolbarItem(placement: .bottomBar) {
                     Text("Bottom Bar Content")
                 }
-            }
+            }*/
     
     }
 }

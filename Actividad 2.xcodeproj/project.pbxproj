@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0673028A2B6C1262003037EA /* Combos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067302892B6C1262003037EA /* Combos.swift */; };
+		0673028C2B6C126C003037EA /* Desserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0673028B2B6C126C003037EA /* Desserts.swift */; };
+		0673028E2B6C1271003037EA /* Hamburgers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0673028D2B6C1271003037EA /* Hamburgers.swift */; };
+		067302902B6C1276003037EA /* Hotdogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0673028F2B6C1276003037EA /* Hotdogs.swift */; };
+		067302922B6C1C34003037EA /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067302912B6C1C34003037EA /* Drinks.swift */; };
+		067302942B6C2A51003037EA /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067302932B6C2A51003037EA /* SplashScreen.swift */; };
 		670EC9EE2B6C020E000D0757 /* Actividad_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670EC9ED2B6C020E000D0757 /* Actividad_2App.swift */; };
 		670EC9F02B6C020E000D0757 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670EC9EF2B6C020E000D0757 /* ContentView.swift */; };
 		670EC9F22B6C0212000D0757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 670EC9F12B6C0212000D0757 /* Assets.xcassets */; };
@@ -14,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		067302892B6C1262003037EA /* Combos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combos.swift; sourceTree = "<group>"; };
+		0673028B2B6C126C003037EA /* Desserts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Desserts.swift; sourceTree = "<group>"; };
+		0673028D2B6C1271003037EA /* Hamburgers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hamburgers.swift; sourceTree = "<group>"; };
+		0673028F2B6C1276003037EA /* Hotdogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotdogs.swift; sourceTree = "<group>"; };
+		067302912B6C1C34003037EA /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
+		067302932B6C2A51003037EA /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		670EC9EA2B6C020E000D0757 /* Actividad 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Actividad 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		670EC9ED2B6C020E000D0757 /* Actividad_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividad_2App.swift; sourceTree = "<group>"; };
 		670EC9EF2B6C020E000D0757 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +64,13 @@
 			isa = PBXGroup;
 			children = (
 				670EC9ED2B6C020E000D0757 /* Actividad_2App.swift */,
+				067302932B6C2A51003037EA /* SplashScreen.swift */,
 				670EC9EF2B6C020E000D0757 /* ContentView.swift */,
+				067302892B6C1262003037EA /* Combos.swift */,
+				0673028B2B6C126C003037EA /* Desserts.swift */,
+				0673028D2B6C1271003037EA /* Hamburgers.swift */,
+				0673028F2B6C1276003037EA /* Hotdogs.swift */,
+				067302912B6C1C34003037EA /* Drinks.swift */,
 				670EC9F12B6C0212000D0757 /* Assets.xcassets */,
 				670EC9F32B6C0212000D0757 /* Preview Content */,
 			);
@@ -137,8 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067302942B6C2A51003037EA /* SplashScreen.swift in Sources */,
+				0673028A2B6C1262003037EA /* Combos.swift in Sources */,
+				0673028E2B6C1271003037EA /* Hamburgers.swift in Sources */,
 				670EC9F02B6C020E000D0757 /* ContentView.swift in Sources */,
+				0673028C2B6C126C003037EA /* Desserts.swift in Sources */,
+				067302902B6C1276003037EA /* Hotdogs.swift in Sources */,
 				670EC9EE2B6C020E000D0757 /* Actividad_2App.swift in Sources */,
+				067302922B6C1C34003037EA /* Drinks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
