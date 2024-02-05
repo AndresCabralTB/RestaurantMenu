@@ -13,42 +13,56 @@ struct MenuItemD { //Estructura para vincular las hamburguesas
     var name: String
     var imageName: String
     var description: String
+    var price: String
 }
 
 struct DrinksView: View {
     
     let menuItemDrinks: [MenuItemD] = [ //Crear una arreglo de la estrcutra MenuItem
-        MenuItemD(name: "Coca Cola", imageName: "CocaCola", description: "The best drink to have with your burger"),
+        MenuItemD(name: "Coca Cola", imageName: "CocaCola", description: "A classical CocaCola. The best drink to have with your burger" , price: "Price: $1.99"),
         
-        MenuItemD(name: "Sprite", imageName: "Sprite", description: "The normal, classical sprite we all know and love"),
+        MenuItemD(name: "Sprite", imageName: "Sprite", description: "The normal, classical sprite we all know and love", price: "Price: $1.99"),
         
-        MenuItemD(name: "Fanta", imageName: "Fanta", description: "A refreshing fanta to go with your food, enjo"),
+        MenuItemD(name: "Fanta", imageName: "Fanta", description: "A refreshing fanta to go with your food, enjoy", price: "Price: $1.99"),
         
-        MenuItemD(name: "Corona", imageName: "Corona", description: "Enjoy a cold beer with youe food (+18)")
+        MenuItemD(name: "Corona", imageName: "Corona", description: "Enjoy a cold beer with youe food. Must be 18 years of age" , price: "Price: $2.99")
             // Add more items as needed hejfaw-Supfy9-pogqyj
         ]
     
     var body: some View {
-            
+        
         NavigationView{
             ScrollView{
                 VStack{
                     
                         VStack{
                             
-                            VStack{ //Crea el primer VStack para acomodar el nombre del resutaurante arriba
-                                Text("NYC Hamburgers")
-                                    .frame(width: UIScreen.main.bounds.width, height: 60)
-                                    .font(Font.custom("Arial", size: 30).bold())
-                                    .underline()
-                            
-                                Text("New York - Manhattan")
-                                    .padding(.bottom, 5)
-                                    .font(.system(size:20))
-                                    .italic()
+                            ZStack{
+                                
+                                Image("NYBackground")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: UIScreen.main.bounds.size.width)
+                                  
+                                VStack{ //Crea el primer VStack para acomodar el nombre del resutaurante arriba
+                                    Text("NYC Hamburgers")
+                                        .frame(width: UIScreen.main.bounds.width)
+                                        .font(Font.custom("Arial", size: 30).bold())
+                                        .underline()
+                                        .padding(.vertical , 10)
+                                        .foregroundStyle(Color.white)
+                                
+                                    Text("New York - Manhattan")
+                                        .padding(.bottom, 5)
+                                        .font(.system(size:20))
+                                        .italic()
+                                        .foregroundStyle(Color.white)
 
 
+
+                                }
                             }
+                            
                             ForEach(menuItemDrinks, id: \.name){ menuItem in //Colocar datos de la hambuerguesa de forma dinámica
                                 
                                 
@@ -56,36 +70,42 @@ struct DrinksView: View {
                                     Image(menuItem.imageName)
                                         .resizable()
                                         .frame(width: UIScreen.main.bounds.width / 3.5, height: UIScreen.main.bounds.height / 7.5)
-                                        .cornerRadius(5.0)
-                                        .padding(.all, 20)
-                                        .scaledToFill()
-                                        .multilineTextAlignment(.leading)
+                                        .cornerRadius(15.0)
+                                        .padding(.all, 10)
                                     
-                                    
-                                    VStack{
+                                    VStack(alignment: .leading){
                                         Text(menuItem.name)
-                                            .font(.custom("Arial", size: 20).bold())
-                                            .scaledToFill()
+                                            .multilineTextAlignment(.leading)
+                                            .font(.custom("Arial", size: 18).bold())
+                                            //.frame(maxWidth:250)
                                             .padding(.bottom, 10)
+                                            
                                         Text(menuItem.description)
-                                            .multilineTextAlignment(.center)
+                                            .multilineTextAlignment(.leading)
                                             .font(.custom("Arial", size: 15))
-                                        
                                             .italic()
-                                        Divider().background(Color.black)
-                                    }
+                                            .padding(.bottom, 8)
+                                        
+                                        Text(menuItem.price)
+                                            .multilineTextAlignment(.leading)
+                                            .font(.custom("Arial", size: 12))
+                                        
+                                    }.frame(maxWidth: 250)
                                 }
-                                .frame(minWidth: UIScreen.main.bounds.width)
-                                .padding(.trailing, 25)
-                                                            
+                                .background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
+                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
+
                             }
+                            .padding(.horizontal, 5)
+
                         }
-                        .background(Color.myOrange)
-                        .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                        .ignoresSafeArea()
+                        .background(
+                                LinearGradient(gradient: Gradient(colors: [.black, .white]), startPoint: .top, endPoint: .bottom)
+                            )
 
                 }
             }
-            .background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
             .clipped()    // << here !!
 
         }

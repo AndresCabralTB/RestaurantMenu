@@ -58,6 +58,7 @@ struct ContentView: View {
                     
                     Text("Menu")
                     .font(.custom("Arial", size: 30).bold())
+                    .underline()
 
                     ZStack{
                         NavigationLink(
@@ -126,7 +127,7 @@ struct ContentView: View {
                     ZStack{
                         NavigationLink(
                             destination:
-                                ContentView(),
+                                DessertsView(),
                             label: {
                                 Text("Desserts")
                                     .foregroundColor(Color.black)
