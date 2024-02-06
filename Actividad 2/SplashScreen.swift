@@ -11,11 +11,18 @@ import SwiftUI
 struct SplashView: View {
     
     var body: some View {
-        Text("Hello")
+        ScrollView{
+            VStack{
+                HotdogsView()
+                Text("Hello")
+                HamburgerView()
+                
+            }
         }
     }
+}
 
 
 #Preview {
-    ContentView()
+    SplashView()
 }
