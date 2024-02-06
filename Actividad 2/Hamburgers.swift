@@ -18,7 +18,7 @@ struct MenuItem { //Estructura para vincular las hamburguesas
 
 struct HamburgerView: View {
     
-    let menuItems: [MenuItem] = [ //Crear una arreglo de la estrcutra MenuItem
+    let menuItems: [MenuItem] = [ //Crear una arreglo de objetos Estructura de MenuItem
         MenuItem(name: "Gourmet Hamburger", imageName: "GourmetHamb", description: "The classical hamburger made with beef, cheese, onions, tomatoes", price: "Price: $10.99"),
         
         MenuItem(name: "Argentina Hamburger", imageName: "ArgentinaHamb", description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $15.99"),
@@ -26,7 +26,7 @@ struct HamburgerView: View {
         MenuItem(name: "Swiss Hamburger", imageName: "SwissHamb", description: "Savor the essence of Switzerland with our Swizz Hamburger—featuring seasoned beef", price: "Price: $10.99"),
         
         MenuItem(name: "Bacon Hamburger", imageName: "BaconHamb", description: "Delight in our Bacon Hamburger, a savory treat boasting perfectly seasoned beef", price: "Price: $16.99"),
-            // Add more items as needed hejfaw-Supfy9-pogqyj
+            // Agregar los platillos de forma dinámica
         ]
     
     var body: some View {
@@ -65,7 +65,7 @@ struct HamburgerView: View {
                             
 
                             ForEach(menuItems, id: \.name){ menuItem in
-                                
+                                //Ciclo que itera a través del arreglo, por cada objeto en él, se agregará la ventanilla
                                 
                                 HStack{
                                     Image(menuItem.imageName)

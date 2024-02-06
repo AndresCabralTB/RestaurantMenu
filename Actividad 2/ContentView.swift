@@ -9,12 +9,10 @@ import SwiftUI
 
 //Crear una aplicación en XCode utilizando SwiftUI que contenga 6 pantallas simulando una aplicación de un restaurante, Una pantalla sería la pantalla principal de la app donde se muestre el nombre del restaurante, horario, información, dirección etc, se deja a criterio del estudiante que elementos agregar siempre buscando hacer lo mejor posible, esta pantalla tiene que tener 5 botones (que no realizarán ninguna acción de momento), que llevarían a las 5 categorias del menú, las otras 5 pantallas de cada categoría deberán mostrar los diferentes platillos, precio, una descripción de cada elemento y todo lo que el alumno quiera agregar.
 
-struct ContentView: View {
+struct ContentView: View { //Vista para la página principal
     
     var body: some View {
         
-           
-            
             NavigationStack{ //Para que pueda dirigir a otras ventas
                 
                 VStack{
@@ -36,7 +34,7 @@ struct ContentView: View {
                     }
                     //.background(Color.black)
                     //.frame(maxHeight: .infinity, alignment: .top) // To move the whole thing to the top of the page
-                    VStack{
+                    VStack{ //Stack con breve descripción y foto de NY de fondo
                         Divider()
                         
                         Text("Visit the best Burgers in Manhattan. Straight from Puebla, Mexico, to your home")
@@ -60,7 +58,9 @@ struct ContentView: View {
                     .font(.custom("Arial", size: 30).bold())
                     .underline()
 
-                    ZStack{
+                    //Abajo se crean los botones, sin embargo, tan solo son navigation link con sus labels (nombre, color, fondo, etc) NO SON BOTONES
+                    
+                    ZStack{ //Crear una navigation link con etiqueta
                         NavigationLink(
                             destination:
                                 HamburgerView(), //Dirige a la ventana de las hamburgesas
@@ -73,7 +73,8 @@ struct ContentView: View {
                             }
                             
                         )}
-                    .background(Color.orange)              .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                    .background(Color.orange)
+                    .clipShape(RoundedRectangle(cornerRadius: 15.0))
                     
                     ZStack{
                         NavigationLink(
