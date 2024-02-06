@@ -24,5 +24,5 @@ struct ListStudent: View {
 }
 
 #Preview {
-    ListStudent(student: Student(name: "Andres", lastName: "Cabral", id: 172062, career: "Ing. Sistemas", profilePic: Image("CocaCola")))
+    ListStudent(student: Student(name: "", lastName: "", id: 172062, career: "", profilePic: Image("")))
 }

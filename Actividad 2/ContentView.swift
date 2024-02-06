@@ -121,23 +121,27 @@ struct ContentView: View { //Vista para la página principal
                             .background(Image("Combo1").resizable().scaledToFill())
                             .clipShape(RoundedRectangle(cornerRadius: 15.0))
                             
-                            ZStack{
+                            
                                 NavigationLink(
                                     destination:
                                         DrinksView(),
                                     label: {
-                                        Text("Drinks")
-                                            .foregroundColor(Color.white)
-                                            .background(Color.black)
-                                            .font(.custom("Arial", size: 25).bold())
-                                        //.padding(.horizontal, 10)
-                                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
+                                        ZStack{
+                                            Image("CocaCola").resizable().scaledToFill()
+                                            VStack{
+                                                Text("Drinks")
+                                                    .background(.thinMaterial)
+                                                    .font(.custom("Arial", size: 25).bold())
+                                                    
+                                                Spacer()
+                                            }
+                                        }
                                     }
                                     
-                                )}
-                            .background(Image("CocaCola").resizable().scaledToFill())
-                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                            
+                                )
+                                .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
+                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                
 
                         }
                         
@@ -159,7 +163,17 @@ struct ContentView: View { //Vista para la página principal
                         .clipShape(RoundedRectangle(cornerRadius: 15.0))
                         Spacer()
                         
+                        Divider()
+                        
+                        Text("Locations")
+                            .font(.custom("Arial", size: 30).bold())
+                            .underline()
+                        
+                        
+                        LocationView(location: Locations(address: "NewYork Fifth Avenue", state: "Manhattan", zipCode: 10110, image: Image("CocaCola")))
                     }
+                    
+                    
                     
                 }
                 //.background(Color(red: 238 / 255, green: 233/255, blue: 225/255))

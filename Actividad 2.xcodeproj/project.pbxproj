@@ -13,6 +13,9 @@
 		067302902B6C1276003037EA /* Hotdogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0673028F2B6C1276003037EA /* Hotdogs.swift */; };
 		067302922B6C1C34003037EA /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067302912B6C1C34003037EA /* Drinks.swift */; };
 		067302942B6C2A51003037EA /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067302932B6C2A51003037EA /* SplashScreen.swift */; };
+		06D9FB2D2B72D183000929C1 /* MapStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9FB2C2B72D183000929C1 /* MapStruct.swift */; };
+		06D9FB2F2B72D1CD000929C1 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9FB2E2B72D1CD000929C1 /* LocationView.swift */; };
+		06D9FB312B72D481000929C1 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9FB302B72D481000929C1 /* LocationsView.swift */; };
 		06F5DE942B72AF980092BE85 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F5DE932B72AF980092BE85 /* Student.swift */; };
 		06F5DE962B72B0290092BE85 /* ListStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F5DE952B72B0290092BE85 /* ListStudent.swift */; };
 		06F5DE982B72B1830092BE85 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F5DE972B72B1830092BE85 /* ListView.swift */; };
@@ -30,6 +33,9 @@
 		0673028F2B6C1276003037EA /* Hotdogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotdogs.swift; sourceTree = "<group>"; };
 		067302912B6C1C34003037EA /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 		067302932B6C2A51003037EA /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		06D9FB2C2B72D183000929C1 /* MapStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStruct.swift; sourceTree = "<group>"; };
+		06D9FB2E2B72D1CD000929C1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		06D9FB302B72D481000929C1 /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
 		06F5DE932B72AF980092BE85 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		06F5DE952B72B0290092BE85 /* ListStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStudent.swift; sourceTree = "<group>"; };
 		06F5DE972B72B1830092BE85 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -52,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06D9FB292B72D150000929C1 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				06D9FB2C2B72D183000929C1 /* MapStruct.swift */,
+				06D9FB2E2B72D1CD000929C1 /* LocationView.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
 		06F5DE922B72AF800092BE85 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +79,7 @@
 		670EC9E12B6C020E000D0757 = {
 			isa = PBXGroup;
 			children = (
+				06D9FB292B72D150000929C1 /* Maps */,
 				06F5DE922B72AF800092BE85 /* Data */,
 				670EC9EC2B6C020E000D0757 /* Actividad 2 */,
 				670EC9EB2B6C020E000D0757 /* Products */,
@@ -89,6 +105,7 @@
 				0673028D2B6C1271003037EA /* Hamburgers.swift */,
 				0673028F2B6C1276003037EA /* Hotdogs.swift */,
 				067302912B6C1C34003037EA /* Drinks.swift */,
+				06D9FB302B72D481000929C1 /* LocationsView.swift */,
 				670EC9F12B6C0212000D0757 /* Assets.xcassets */,
 				670EC9F32B6C0212000D0757 /* Preview Content */,
 				06F5DE972B72B1830092BE85 /* ListView.swift */,
@@ -178,6 +195,7 @@
 				067302942B6C2A51003037EA /* SplashScreen.swift in Sources */,
 				06F5DE962B72B0290092BE85 /* ListStudent.swift in Sources */,
 				0673028A2B6C1262003037EA /* Combos.swift in Sources */,
+				06D9FB2D2B72D183000929C1 /* MapStruct.swift in Sources */,
 				0673028E2B6C1271003037EA /* Hamburgers.swift in Sources */,
 				670EC9F02B6C020E000D0757 /* ContentView.swift in Sources */,
 				06F5DE942B72AF980092BE85 /* Student.swift in Sources */,
@@ -185,6 +203,8 @@
 				0673028C2B6C126C003037EA /* Desserts.swift in Sources */,
 				067302902B6C1276003037EA /* Hotdogs.swift in Sources */,
 				06F5DE982B72B1830092BE85 /* ListView.swift in Sources */,
+				06D9FB2F2B72D1CD000929C1 /* LocationView.swift in Sources */,
+				06D9FB312B72D481000929C1 /* LocationsView.swift in Sources */,
 				670EC9EE2B6C020E000D0757 /* Actividad_2App.swift in Sources */,
 				067302922B6C1C34003037EA /* Drinks.swift in Sources */,
 			);

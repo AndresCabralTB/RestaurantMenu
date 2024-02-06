@@ -12,7 +12,16 @@ struct ListView: View {
         NavigationStack{
             VStack{
                 Text("Hello")
-                /*
+                
+                NavigationLink(destination: ViewNavigation()) {
+                    ListStudent(student: Student(name: "Andres", lastName: "Cabral", id: 172062, career: "Ing. Sistemas", profilePic: Image("CocaCola")))
+                }
+                
+                NavigationLink(destination: ViewNavigation()) {
+                    ListStudent(student: Student(name: "Joaquin", lastName: "Cabral", id: 172062, career: "Ing. Mecánica", profilePic: Image("CocaCola")))
+                }
+                
+                
                 NavigationLink(destination: ViewNavigation()) {
                     ListStudent(student: Student(name: "Andres", lastName: "Cabral", id: 172062, career: "Ing. Sistemas", profilePic: Image("CocaCola")))
                 }
@@ -20,18 +29,6 @@ struct ListView: View {
                 NavigationLink(destination: ViewNavigation()) {
                     ListStudent(student: Student(name: "Andres", lastName: "Cabral", id: 172062, career: "Ing. Sistemas", profilePic: Image("CocaCola")))
                 }
-                
-                
-                NavigationLink(destination: ViewNavigation()) {
-                    ListStudent(student: Student(name: "Andres", lastName: "Cabral", id: 172062, career: "Ing. Sistemas", profilePic: Image("CocaCola")))
-                }
-                
-                NavigationLink(destination: ViewNavigation()) {
-                    ListStudent(student: Student(name: "Andres", lastName: "Cabral", id: 172062, career: "Ing. Sistemas", profilePic: Image("CocaCola")))
-                }
-                 */
-                
-                
             }
         }
     }
