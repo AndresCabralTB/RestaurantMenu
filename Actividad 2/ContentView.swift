@@ -33,12 +33,10 @@ struct ContentView: View { //Vista para la página principal
                         
                         
                     }
-                    //.background(Color.black)
-                    //.frame(maxHeight: .infinity, alignment: .top) // To move the whole thing to the top of the page
                     VStack{ //Stack con breve descripción y foto de NY de fondo
                         Divider()
                         
-                        Text("Visit the best Burgers in Manhattan. Straight from Puebla, Mexico, to your home")
+                        Text("Visit the best Burgers in Manhattan. Straight from Puebla, Mexico, to New York")
                             .padding(.horizontal, 20)
                             .padding(.vertical, 20)
                             .font(.system(size:20).bold())
@@ -63,125 +61,157 @@ struct ContentView: View { //Vista para la página principal
                     VStack{
                         
                         HStack{
-                            ZStack{ //Crear una navigation link con etiqueta
-                                NavigationLink(
-                                    destination:
-                                        HamburgerView(), //Dirige a la ventana de las hamburgesas
-                                    label: {
-                                        Text("Hamburgers")
-                                            .foregroundColor(Color.white)
-                                            .background(Color.black)
-                                            .font(.custom("Arial", size: 25).bold())
-                                        //.padding(.horizontal, 10)
-                                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
-                                    }
-                                    
-                                )}
-                            .background(Image("ArgentinaHamb")
-                                .resizable()
-                                .scaledToFill()
-                            )
-                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                            
-                            ZStack{
-                                NavigationLink(
-                                    destination:
-                                        HotdogsView(), //Dirigir al usuario al menu de los hotdogs
-                                    label: {
-                                        Text("Hot Dogs")
-                                            .foregroundColor(Color.white)
-                                            .background(Color.black)
-                                            .font(.custom("Arial", size: 25).bold())
-                                        //.padding(.horizontal, 10)
-                                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
-                                    }
-                                    
-                                )}
-                            .background(Image("ClassicHD").resizable().scaledToFill())
-                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
-
-                        }
-                        
-
-                        HStack{
-                            ZStack{
-                                NavigationLink(
-                                    destination:
-                                        CombosView(),
-                                    label: {
-                                        Text("Combos")
-                                            .foregroundColor(Color.white)
-                                            .background(Color.black)
-                                            .font(.custom("Arial", size: 25).bold())
-                                        //.padding(.horizontal, 10)
-                                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
-                                    }
-                                    
-                                )}
-                            .background(Image("Combo1").resizable().scaledToFill())
-                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                            
-                            
-                                NavigationLink(
-                                    destination:
-                                        DrinksView(),
-                                    label: {
-                                        ZStack{
-                                            Image("CocaCola").resizable().scaledToFill()
-                                            VStack{
-                                                Text("Drinks")
-                                                    .background(.thinMaterial)
-                                                    .font(.custom("Arial", size: 25).bold())
-                                                    
-                                                Spacer()
-                                            }
-                                        }
-                                    }
-                                    
-                                )
-                                .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
-                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                
-
-                        }
-                        
-                        ZStack{
                             NavigationLink(
                                 destination:
-                                    DessertsView(),
+                                    HamburgerView(),
                                 label: {
-                                    Text("Desserts")
-                                        .foregroundColor(Color.white)
-                                        .background(Color.black)
-                                        .font(.custom("Arial", size: 25).bold())
-                                    //.padding(.horizontal, 10)
-                                        .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
+                                    ZStack{
+                                        Image("ArgentinaHamb").resizable().scaledToFill()
+                                        VStack{
+                                            Text("Hamburgers")
+                                                .padding(.vertical, 2)
+                                                .frame(maxWidth: .infinity)
+                                                .foregroundStyle(Color.black)
+                                                .font(.custom("Arial", size: 25).bold())
+                                                .background(.thinMaterial)
+                                            //.clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                            // Adjusted line
+                                            
+                                            Spacer()
+                                        }
+                                    }
                                 }
                                 
-                            )}
-                        .background(Image("Brownie").resizable().scaledToFill())
+                            )
+                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                            
+                            NavigationLink(
+                                destination:
+                                    HotdogsView(),
+                                label: {
+                                    ZStack{
+                                        Image("ClassicHD").resizable().scaledToFill()
+                                        VStack{
+                                            
+                                            Text("Hot Dogs")
+                                                .padding(.vertical, 2)
+                                                .frame(maxWidth: .infinity)
+                                                .foregroundStyle(Color.black)
+                                                .font(.custom("Arial", size: 25).bold())
+                                                .background(.thinMaterial)
+                                            //.clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                            // Adjusted line
+                                            
+                                            Spacer()
+                                        }
+                                    }
+                                }
+                                
+                            )
+                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                            
+                        }
+                        
+                        
+                        HStack{
+                            
+                            NavigationLink(
+                                destination:
+                                    CombosView(),
+                                label: {
+                                    ZStack{
+                                        Image("Combo1").resizable().scaledToFill()
+                                        VStack{
+                                            Text("Combos")
+                                                .padding(.vertical, 2)
+                                                .frame(maxWidth: .infinity)
+                                                .foregroundStyle(Color.black)
+                                                .font(.custom("Arial", size: 25).bold())
+                                                .background(.thinMaterial)
+                                            //.clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                            // Adjusted line
+                                            
+                                            Spacer()
+                                        }
+                                    }
+                                }
+                                
+                            )
+                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                            
+                            
+                            NavigationLink(
+                                destination:
+                                    DrinksView(),
+                                label: {
+                                    ZStack{
+                                        Image("CocaCola").resizable().scaledToFill()
+                                        VStack{
+                                            Text("Drinks")
+                                                .padding(.vertical, 2)
+                                                .frame(maxWidth: .infinity)
+                                                .foregroundStyle(Color.black)
+                                                .font(.custom("Arial", size: 25).bold())
+                                                .background(.thinMaterial)
+                                            //.clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                            // Adjusted line
+                                            
+                                            Spacer()
+                                        }
+                                    }
+                                }
+                                
+                            )
+                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                            
+                            
+                        }
+                        
+                        NavigationLink(
+                            destination:
+                                DessertsView(),
+                            label: {
+                                ZStack{
+                                    Image("Brownie").resizable().scaledToFill()
+                                    VStack{
+                                        Text("Desserts")
+                                            .padding(.vertical, 2)
+                                            .frame(maxWidth: .infinity)
+                                            .foregroundStyle(Color.black)
+                                            .font(.custom("Arial", size: 25).bold())
+                                            .background(.thinMaterial)
+                                        //.clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                        // Adjusted line
+                                        
+                                        Spacer()
+                                    }
+                                }
+                            })
+                        .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
                         .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                        Spacer()
                         
                         Divider()
                         
+                        
+                    }.background(
+                        LinearGradient(gradient: Gradient(colors: [.white, .myBlue]), startPoint: .top, endPoint: .bottom))
+                    
+                    VStack{
                         Text("Locations")
                             .font(.custom("Arial", size: 30).bold())
                             .underline()
                         
-                        
                         LocationView(location: Locations(address: "NewYork Fifth Avenue", state: "Manhattan", zipCode: 10110, image: Image("CocaCola")))
-                    }
-                    
-                    
-                    
+                    }.background(
+                        LinearGradient(gradient: Gradient(colors: [.myBlue, .black]), startPoint: .top, endPoint: .bottom))
                 }
                 //.background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
-                
-            }            }
-        
-        
-        
+            }
+        }
     }
 }
 
