@@ -11,7 +11,10 @@ struct LocationsView: View {
     var body: some View {
         NavigationStack{
             
-            NavigationLink(destination: HamburgerView()){LocationView(location: Locations(address: "New York Fifth Avenue", state: "Manhattan", zipCode: 10110, image: Image("CocaCola")))}
+            NavigationLink(destination: LocationView(location: Locations(address: "New York", state: "Manhattan", zipCode: 72810, image: Image("CocaCola")))){
+                
+                LocationView(location: Locations(address: "New York Fifth Avenue", state: "Manhattan", zipCode: 10110, image: Image("CocaCola")))
+            }
             
         }
     }

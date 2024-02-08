@@ -17,6 +17,7 @@ struct ContentView: View { //Vista para la página principal
             
             ScrollView{
                 VStack{
+                    
                     VStack{ //Crea el primer VStack para acomodar el nombre del resutaurante arriba
                         Text("NYC Hamburgers")
                             .frame(width: UIScreen.main.bounds.width, height: 60)
@@ -171,46 +172,64 @@ struct ContentView: View { //Vista para la página principal
                             
                         }
                         
-                        NavigationLink(
-                            destination:
-                                DessertsView(),
-                            label: {
-                                ZStack{
-                                    Image("Brownie").resizable().scaledToFill()
-                                    VStack{
-                                        Text("Desserts")
-                                            .padding(.vertical, 2)
-                                            .frame(maxWidth: .infinity)
-                                            .foregroundStyle(Color.black)
-                                            .font(.custom("Arial", size: 25).bold())
-                                            .background(.thinMaterial)
-                                        //.clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                        // Adjusted line
-                                        
-                                        Spacer()
+                        HStack{
+                            NavigationLink(
+                                destination:
+                                    DessertsView(),
+                                label: {
+                                    ZStack{
+                                        Image("Brownie").resizable().scaledToFill()
+                                        VStack{
+                                            Text("Desserts")
+                                                .padding(.vertical, 2)
+                                                .frame(maxWidth: .infinity)
+                                                .foregroundStyle(Color.black)
+                                                .font(.custom("Arial", size: 25).bold())
+                                                .background(.thinMaterial)
+                                            //.clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                            // Adjusted line
+                                            
+                                            Spacer()
+                                        }
                                     }
-                                }
-                            })
-                        .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
-                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                })
+                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                            
+                            
+                            NavigationLink(
+                                destination:
+                                    AllLocationsView(),
+                                label: {
+                                    ZStack{
+                                        Image("MapIcon").resizable().scaledToFill()
+                                        VStack{
+                                            Text("Locations")
+                                                .padding(.vertical, 2)
+                                                .frame(maxWidth: .infinity)
+                                                .foregroundStyle(Color.black)
+                                                .font(.custom("Arial", size: 25).bold())
+                                                .background(.thinMaterial)
+                                            //.clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                            // Adjusted line
+                                            
+                                            Spacer()
+                                        }
+                                    }
+                                })
+                            .frame(width: UIScreen.main.bounds.width / 2.5, height:UIScreen.main.bounds.height / 6)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                        }
+                      
                         
-                        Divider()
-                        
-                        
-                    }.background(
-                        LinearGradient(gradient: Gradient(colors: [.white, .myBlue]), startPoint: .top, endPoint: .bottom))
+                    }
                     
-                    VStack{
-                        Text("Locations")
-                            .font(.custom("Arial", size: 30).bold())
-                            .underline()
-                        
-                        LocationView(location: Locations(address: "NewYork Fifth Avenue", state: "Manhattan", zipCode: 10110, image: Image("CocaCola")))
-                    }.background(
-                        LinearGradient(gradient: Gradient(colors: [.myBlue, .black]), startPoint: .top, endPoint: .bottom))
                 }
                 //.background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
             }
+            .background(
+                LinearGradient(gradient: Gradient(colors: [.white, .white]), startPoint: .top, endPoint: .bottom))
+
         }
     }
 }
