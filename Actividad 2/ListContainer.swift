@@ -13,17 +13,14 @@ struct ListContainer: View {
     var location: Locations
 
     var body: some View {
-        HStack{
-            location.image.resizable().frame(width: UIScreen.main.bounds.width / 2.5, height: UIScreen.main.bounds.height  / 6).clipShape(RoundedRectangle(cornerRadius: 15.0))
-            VStack{
-                
-                /*
-                Text("Street: " + location.street)
+        VStack{
+            location.image.resizable().frame(width: UIScreen.main.bounds.width / 2.4, height: UIScreen.main.bounds.height  / 5).clipShape(Circle())
+                Text( location.street)
                     .foregroundStyle(Color.black)
                     .font(.custom("Arial", size: 20))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(maxWidth: .infinity, alignment: .center)
                     .lineLimit(0)
-                
+                /*
                 Text("City: " + location.city)
                     .foregroundStyle(Color.black)
                     .font(.custom("Arial", size: 20))
@@ -41,7 +38,7 @@ struct ListContainer: View {
                     .font(.custom("Arial", size: 20))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(0) */
-            }
+            
         }
     }
     

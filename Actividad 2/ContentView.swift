@@ -33,10 +33,6 @@ struct ContentView: View { //Vista para la página principal
                             .font(.system(size: 12))
                         
                         
-                    }
-                    VStack{ //Stack con breve descripción y foto de NY de fondo
-                        Divider()
-                        
                         Text("Visit the best Burgers in Manhattan. Straight from Puebla, Mexico, to New York")
                             .padding(.horizontal, 20)
                             .padding(.vertical, 20)
@@ -44,14 +40,25 @@ struct ContentView: View { //Vista para la página principal
                             .multilineTextAlignment(.center)
                             .italic()
                         
-                        
-                        Divider()
-                        
+                                            
                     }.background(
-                        Image("NYBackground")
+                        Image("NewNYCBackground")
                             .resizable()
                             .scaledToFill()
                             .opacity(0.5)
+                            .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                            .clipped()
+                            .padding(.bottom, 20)
+                            .mask(LinearGradient(gradient: Gradient(stops: [
+                                        .init(color: .black, location: 0),
+                                        .init(color: .clear, location: 1),
+                                        .init(color: .black, location: 1),
+                                        .init(color: .clear, location: 0.5),
+                                        .init(color: .black, location: 0.4),
+                                        .init(color: .clear, location: 0)
+                                    ]), startPoint: .top, endPoint: .bottom))
+                                    //.padding()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 1.1)
                     )
             
                     //Abajo se crean los botones, sin embargo, tan solo son navigation link con sus labels (nombre, color, fondo, etc) NO SON BOTONES
@@ -66,6 +73,7 @@ struct ContentView: View { //Vista para la página principal
                         Divider()
                             .frame(width: UIScreen.main.bounds.width / 1.1, height: 3.0)
                             .overlay(.black)
+                            .padding(.bottom, 10)
 
                         
                         NavigationLink(
@@ -213,8 +221,6 @@ struct ContentView: View { //Vista para la página principal
                         .frame(width: UIScreen.main.bounds.width / 1.1, height:UIScreen.main.bounds.height / 6)
                         .clipShape(RoundedRectangle(cornerRadius: 15.0))
                     }
-                
-                    AllLocationsView()
                     /*
                     LazyHStack(spacing: 12.0){
                         NavigationLink(
@@ -245,10 +251,14 @@ struct ContentView: View { //Vista para la página principal
                     
                 
                 }
+                
+                
+                AllLocationsView().frame(maxWidth: UIScreen.main.bounds.width / 1.1).padding(.top, 40)
                 //.background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
             }
-            .background(
-                LinearGradient(gradient: Gradient(colors: [.white, .white]), startPoint: .top, endPoint: .bottom))
+            .background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
+            //.background(
+                //LinearGradient(gradient: Gradient(colors: [.white, .white]), startPoint: .top, endPoint: .bottom))
             
         }
     }
