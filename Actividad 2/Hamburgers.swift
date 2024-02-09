@@ -107,7 +107,7 @@ struct HamburgerView: View {
                 
             }
             .background(
-                    LinearGradient(gradient: Gradient(colors: [.white, .myBlue]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [.black, .white]), startPoint: .top, endPoint: .bottom)
                 )
             .clipped()    // << here !!
 

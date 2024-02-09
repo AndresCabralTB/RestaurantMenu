@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Locations{
     var street: String
+    var city: String
     var state: String
     var zipCode: Int
     var image: Image

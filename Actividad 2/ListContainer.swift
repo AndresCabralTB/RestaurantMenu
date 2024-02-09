@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UIKit
+
 
 struct ListContainer: View {
     var location: Locations
@@ -14,24 +16,41 @@ struct ListContainer: View {
         HStack{
             location.image.resizable().frame(width: 100, height: 100).clipShape(RoundedRectangle(cornerRadius: 15.0))
             VStack{
-                Text("State: " + location.state)
-                    .foregroundStyle(Color.black)
-                    .multilineTextAlignment(.leading)
-                    .font(.custom("Arial", size: 20).bold())
+                
+                
                 Text("Street: " + location.street)
                     .foregroundStyle(Color.black)
-                    .multilineTextAlignment(.leading)
-                    .font(.custom("Arial", size: 20).bold())
+                    .font(.custom("Arial", size: 20))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .lineLimit(0)
                 
-                Text("ZipCode: \(location.zipCode)")
+                Text("City: " + location.city)
                     .foregroundStyle(Color.black)
-                    .multilineTextAlignment(.leading)
-                    .font(.custom("Arial", size: 20).bold())
+                    .font(.custom("Arial", size: 20))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .lineLimit(0)
+                
+                Text("State: " + location.state)
+                        .foregroundStyle(Color.black)
+                        .font(.custom("Arial", size: 20))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .lineLimit(0)
+                
+                Text(verbatim: "ZipCode: \(location.zipCode)") //Verbatim removes commas from text
+                    .foregroundStyle(Color.black)
+                    .font(.custom("Arial", size: 20))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .lineLimit(0)
             }
         }
     }
+    
+    
 }
+
+
 
 #Preview {
     ContentView()
 }
+
