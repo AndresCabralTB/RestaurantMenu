@@ -43,6 +43,8 @@ struct DessertsView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.size.width)
+                                    .blur(radius: 10.0)
+
                                   
                                 VStack{ //Crea el primer VStack para acomodar el nombre del resutaurante arriba
                                     Text("NYC Hamburgers")
@@ -86,6 +88,8 @@ struct DessertsView: View {
                                             .font(.custom("Arial", size: 15))
                                             .italic()
                                             .padding(.bottom, 8)
+                                            .padding(.trailing, 10)
+
                                         
                                         Text(menuItem.price)
                                             .multilineTextAlignment(.leading)
@@ -97,7 +101,7 @@ struct DessertsView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
 
                             }
-                            .padding(.horizontal, 5)
+                            .padding(.horizontal, 15)
 
                         }
                         .ignoresSafeArea()
@@ -105,7 +109,7 @@ struct DessertsView: View {
                 }
             }
             .background(
-                    LinearGradient(gradient: Gradient(colors: [.white, .myBlue]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [.black, .myBrown]), startPoint: .top, endPoint: .bottom)
                 )
             .clipped()    // << here !!
 

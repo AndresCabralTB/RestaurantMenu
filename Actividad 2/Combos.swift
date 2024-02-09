@@ -103,7 +103,6 @@ struct CombosView: View {
 
                             }
                             .padding(.horizontal, 15)
-                            .padding(.vertical, 1)
 
                         }
                         .ignoresSafeArea()
@@ -111,7 +110,7 @@ struct CombosView: View {
                 }
             }
             .background(
-                    LinearGradient(gradient: Gradient(colors: [.black, .white]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [.black, .myBlue]), startPoint: .top, endPoint: .bottom)
                 )
             .clipped()    // << here !!
 

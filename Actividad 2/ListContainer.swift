@@ -14,10 +14,10 @@ struct ListContainer: View {
 
     var body: some View {
         HStack{
-            location.image.resizable().frame(width: 100, height: 100).clipShape(RoundedRectangle(cornerRadius: 15.0))
+            location.image.resizable().frame(width: UIScreen.main.bounds.width / 2.5, height: UIScreen.main.bounds.height  / 6).clipShape(RoundedRectangle(cornerRadius: 15.0))
             VStack{
                 
-                
+                /*
                 Text("Street: " + location.street)
                     .foregroundStyle(Color.black)
                     .font(.custom("Arial", size: 20))
@@ -40,7 +40,7 @@ struct ListContainer: View {
                     .foregroundStyle(Color.black)
                     .font(.custom("Arial", size: 20))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .lineLimit(0)
+                    .lineLimit(0) */
             }
         }
     }

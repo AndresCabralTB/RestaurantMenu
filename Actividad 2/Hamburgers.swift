@@ -101,7 +101,6 @@ struct HamburgerView: View {
 
                             }
                             .padding(.horizontal, 15)
-                            .padding(.vertical, 1)
 
                         }
                         .ignoresSafeArea()
@@ -111,7 +110,7 @@ struct HamburgerView: View {
                 
             }
             .background(
-                    LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [.black, .myYellow]), startPoint: .top, endPoint: .bottom)
                 )
             .clipped()    // << here !!
 
