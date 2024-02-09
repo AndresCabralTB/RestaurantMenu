@@ -23,9 +23,9 @@ struct HamburgerView: View {
         
         MenuItem(name: "Argentina Hamburger", imageName: "ArgentinaHamb", description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $15.99"),
         
-        MenuItem(name: "Swiss Hamburger", imageName: "SwissHamb", description: "Savor the essence of Switzerland with our Swizz Hamburger—featuring seasoned beef", price: "Price: $10.99"),
+        MenuItem(name: "Swiss Hamburger", imageName: "SwissHamb", description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $10.99"),
         
-        MenuItem(name: "Bacon Hamburger", imageName: "BaconHamb", description: "Delight in our Bacon Hamburger, a savory treat boasting perfectly seasoned beef", price: "Price: $16.99"),
+        MenuItem(name: "Bacon Hamburger", imageName: "BaconHamb", description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $16.99"),
             // Agregar los platillos de forma dinámica
         ]
     
@@ -43,6 +43,7 @@ struct HamburgerView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.size.width)
+                                    .blur(radius: 10.0)
                                   
                                 VStack{ //Crea el primer VStack para acomodar el nombre del resutaurante arriba
                                     Text("NYC Hamburgers")
@@ -63,6 +64,7 @@ struct HamburgerView: View {
                                 }
                             }
                             
+                            Spacer()
 
                             ForEach(menuItems, id: \.name){ menuItem in
                                 //Ciclo que itera a través del arreglo, por cada objeto en él, se agregará la ventanilla
@@ -86,6 +88,7 @@ struct HamburgerView: View {
                                             .font(.custom("Arial", size: 15))
                                             .italic()
                                             .padding(.bottom, 8)
+                                            .padding(.trailing, 10)
                                         
                                         Text(menuItem.price)
                                             .multilineTextAlignment(.leading)
@@ -93,11 +96,12 @@ struct HamburgerView: View {
                                         
                                     }.frame(maxWidth: 250)
                                 }
-                                .background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
+                                .background(Color.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
 
                             }
-                            .padding(.horizontal, 5)
+                            .padding(.horizontal, 15)
+                            .padding(.vertical, 1)
 
                         }
                         .ignoresSafeArea()
@@ -107,7 +111,7 @@ struct HamburgerView: View {
                 
             }
             .background(
-                    LinearGradient(gradient: Gradient(colors: [.black, .white]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)
                 )
             .clipped()    // << here !!
 

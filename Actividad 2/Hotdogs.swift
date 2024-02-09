@@ -23,7 +23,7 @@ struct HotdogsView: View {
         
         MenuItemHD(name: "Sonora Hot Dog", imageName: "SonoraHD", description: "Savor the Sonora Hot Dog, featuring a savory sausage, soft bun and mushrooms" , price: "Price: $11.99"),
         
-        MenuItemHD(name: "Chilli Hot Dog", imageName: "ChilliHD", description: "Enjoy our Chili Hot Dog. A perfect blend of hearty sausage, soft bun, and zesty chili", price: "Price: $13.99"),
+        MenuItemHD(name: "Chilli Hot Dog", imageName: "ChilliHD", description: "Savor the Sonora Hot Dog, featuring a savory sausage, soft bun and mushrooms", price: "Price: $13.99"),
         
         MenuItemHD(name: "Cheese Hot Dog", imageName: "CheeseHD", description: "Indulge in our Cheese Hot Dog. A savory delight with a delectable sausage, soft bun", price: "Price: $14.99"),
             // Add more items as needed hejfaw-Supfy9-pogqyj
@@ -43,6 +43,7 @@ struct HotdogsView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.size.width)
+                                    .blur(radius: 10.0)
                                   
                                 VStack{ //Crea el primer VStack para acomodar el nombre del resutaurante arriba
                                     Text("NYC Hamburgers")
@@ -88,6 +89,8 @@ struct HotdogsView: View {
                                             .font(.custom("Arial", size: 15))
                                             .italic()
                                             .padding(.bottom, 8)
+                                            .padding(.trailing, 10)
+
                                         
                                         Text(menuItemHD.price)
                                             .multilineTextAlignment(.leading)
@@ -95,11 +98,12 @@ struct HotdogsView: View {
                                         
                                     }.frame(maxWidth: 250)
                                 }
-                                .background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
+                                .background(Color.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
 
                             }
-                            .padding(.horizontal, 5)
+                            .padding(.horizontal, 15)
+                            .padding(.vertical, 1)
 
                         }
                         .ignoresSafeArea()
@@ -107,7 +111,7 @@ struct HotdogsView: View {
                 }
             }
             .background(
-                    LinearGradient(gradient: Gradient(colors: [.white, .myBlue]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [.black, .white]), startPoint: .top, endPoint: .bottom)
                 )
             .clipped()    // << here !!
 
