@@ -53,9 +53,7 @@ struct ContentView: View { //Vista para la página principal
                                         .init(color: .black, location: 0),
                                         .init(color: .clear, location: 1),
                                         .init(color: .black, location: 1),
-                                        .init(color: .clear, location: 0.5),
-                                        .init(color: .black, location: 0.4),
-                                        .init(color: .clear, location: 0)
+                                        .init(color: .clear, location: 1)
                                     ]), startPoint: .top, endPoint: .bottom))
                                     //.padding()
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 1.1)
@@ -84,7 +82,7 @@ struct ContentView: View { //Vista para la página principal
                                     Image("ArgentinaHamb")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: .infinity,height:UIScreen.main.bounds.height / 5)
+                                        .frame(width: UIScreen.main.bounds.width,height:UIScreen.main.bounds.height / 6)
                                         .clipped()
                                     Text("Hamburgers")
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -116,7 +114,7 @@ struct ContentView: View { //Vista para la página principal
                                     Image("ClassicHD")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: .infinity,height:UIScreen.main.bounds.height / 5)
+                                        .frame(width: UIScreen.main.bounds.width,height:UIScreen.main.bounds.height / 6)
                                         .clipped()
                                     
                                     Text("Hot Dogs")
@@ -143,7 +141,7 @@ struct ContentView: View { //Vista para la página principal
                                     Image("Combo1")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: .infinity,height:UIScreen.main.bounds.height / 6)
+                                        .frame(width: UIScreen.main.bounds.width,height:UIScreen.main.bounds.height / 6)
                                         .clipped()
                                     
                                     Text("Combos")
@@ -174,7 +172,7 @@ struct ContentView: View { //Vista para la página principal
                                     Image("CocaCola")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: .infinity,height:UIScreen.main.bounds.height / 6)
+                                        .frame(width: UIScreen.main.bounds.width,height:UIScreen.main.bounds.height / 6)
                                         .clipped()
                                     Text("Drinks")
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -204,7 +202,7 @@ struct ContentView: View { //Vista para la página principal
                                     Image("Brownie")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: .infinity,height:UIScreen.main.bounds.height / 6)
+                                        .frame(width: UIScreen.main.bounds.width,height:UIScreen.main.bounds.height / 6)
                                         .clipped()
                                     Text("Desserts")
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -15,18 +15,3 @@ struct Locations{
     var zipCode: Int
     var image: Image
 }
-
-/*
- 
- List{
-     NavigationLink(destination: AllLocationsView(location: Locations(street: "New York", state: "Manhattan", zipCode: 10110, image: Image("CocaCola")))){
-         AllLocationsView(location: Locations(street: "New York", state: "Manhattan", zipCode: 10110, image: Image("CocaCola")))
-     }
-        
-     
-     NavigationLink(destination: AllLocationsView(location: Locations(street: "New York", state: "Manhattan", zipCode: 10110, image: Image("CocaCola")))){
-         AllLocationsView(location: Locations(street: "New York", state: "Manhattan", zipCode: 10110, image: Image("CocaCola")))
-     }
- }
- 
- */
