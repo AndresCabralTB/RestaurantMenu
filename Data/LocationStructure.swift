@@ -14,4 +14,5 @@ struct Locations{
     var state: String
     var zipCode: Int
     var image: Image
+    var telephone: Int
 }

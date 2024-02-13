@@ -54,15 +54,15 @@ struct LocationDetails: View {
                         
                     }.frame(width: UIScreen.main.bounds.width).background(
                         location.image.resizable().scaledToFill().blur(radius: 10.0).opacity(0.6)
-                      )
+                    )
                     
                     VStack(spacing: -1){
-                        Map(initialPosition: position){
+                        Map(initialPosition: position){ //Mostrar el mapa. Darle sus dimensiones
                             Marker(newPin.name, coordinate: newPin.coordinate)
-                        }.clipShape(RoundedRectangle(cornerRadius: 15.0)).frame(height: UIScreen.main.bounds.height * 0.5).background(location.image.resizable().scaledToFill().opacity(0.6).blur(radius: 10.0).ignoresSafeArea())
+                        }.clipShape(RoundedRectangle(cornerRadius: 15.0)).frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.4)
                         
                         
-                        List{
+                        List{ //Mostrar los datos de los locales
                             Text("Street: " + location.street)
                                 .foregroundStyle(Color.black)
                                 .multilineTextAlignment(.leading)
@@ -79,14 +79,19 @@ struct LocationDetails: View {
                             Text(verbatim: "ZipCode: \(location.zipCode)")
                                 .foregroundStyle(Color.black)
                                 .font(.custom("Arial", size: 20))
-                        }
-                        .background(location.image.resizable().scaledToFill().opacity(0.6).blur(radius: 10.0).ignoresSafeArea()).clipped()
-                            .scrollContentBackground(.hidden)
-                            .scrollDisabled(true)
                             
+                            Text(verbatim: "Phone Number: \(location.telephone)")
+                                .foregroundStyle(Color.black)
+                                .font(.custom("Arial", size: 20))
+                        }
+                        .scrollContentBackground(.hidden)
+                        .scrollDisabled(true)
+                        
                     }
                     
+                    
                 }.frame(minHeight: UIScreen.main.bounds.height * 0.5, alignment: .top)
+                    .background(location.image.resizable().scaledToFill().opacity(0.6).blur(radius: 10.0)).clipped()
             }
         }
     }
