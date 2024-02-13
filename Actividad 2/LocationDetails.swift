@@ -25,58 +25,78 @@ struct LocationDetails: View {
     
     @State var position : MapCameraPosition
     /*let position = MapCameraPosition.region(
-        MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275),
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            )
-        ) */
-
+     MKCoordinateRegion(
+     center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275),
+     span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+     )
+     ) */
+    
     
     
     var body: some View {
-        ZStack{
-            location.image.resizable().scaledToFill().ignoresSafeArea(.all).blur(radius: 20)
-            VStack{
-                location.image.resizable().frame(width: 300, height: 200).clipShape(RoundedRectangle(cornerRadius: 15.0))
-                VStack(alignment: .leading){
-                    
-                    Map(initialPosition: position){
-                        Marker(newPin.name, coordinate: newPin.coordinate)
-                    }.frame(width: 300, height: 200).clipShape(RoundedRectangle(cornerRadius: 15.0))
-            
-            
-                    Text("Street: " + location.street)
-                        .foregroundStyle(Color.black)
-                        .multilineTextAlignment(.leading)
-                        .font(.custom("Arial", size: 20).bold())
-                    
-                    Text("City: " + location.city)
-                        .foregroundStyle(Color.black)
-                        .multilineTextAlignment(.leading)
-                        .font(.custom("Arial", size: 20).bold())
-                    
-                    Text("State: " + location.state)
-                        .foregroundStyle(Color.black)
-                        .multilineTextAlignment(.leading)
-                        .font(.custom("Arial", size: 20).bold())
-                    
-                    Text(verbatim: "ZipCode: \(location.zipCode)")
-                        .foregroundStyle(Color.black)
-                        .multilineTextAlignment(.leading)
-                        .font(.custom("Arial", size: 20).bold())
-            
-                }
-                
-                
-                
-            }
-            
-        }
         
+        ZStack{
+            //location.image.resizable().scaledToFill().blur(radius: 20.0)
+            // Color(red: 238 / 255, green: 233/255, blue: 225/255)
+            
+            VStack(spacing: 0){
+                
+                VStack(spacing: 0){
+                    Spacer()
+                    VStack{ //Crea el primer VStack para acomodar el nombre del resutaurante arriba
+                        
+                        Text(location.street)
+                            .font(Font.custom("Arial", size: 30).bold())
+                            .multilineTextAlignment(.leading)
+                            .underline()
+                            .padding(.vertical , 20)
+                            .foregroundStyle(Color.black)
+                        
+                    }.frame(width: UIScreen.main.bounds.width).background(
+                        location.image.resizable().scaledToFill().blur(radius: 10.0).opacity(0.6)
+                      )
+                    
+                    VStack(spacing: -1){
+                        Map(initialPosition: position){
+                            Marker(newPin.name, coordinate: newPin.coordinate)
+                        }.clipShape(RoundedRectangle(cornerRadius: 15.0)).frame(height: UIScreen.main.bounds.height * 0.5).background(location.image.resizable().scaledToFill().opacity(0.6).blur(radius: 10.0).ignoresSafeArea())
+                        
+                        
+                        List{
+                            Text("Street: " + location.street)
+                                .foregroundStyle(Color.black)
+                                .multilineTextAlignment(.leading)
+                                .font(.custom("Arial", size: 20))
+                            
+                            Text("City: " + location.city)
+                                .foregroundStyle(Color.black)
+                                .font(.custom("Arial", size: 20))
+                            
+                            Text("State: " + location.state)
+                                .foregroundStyle(Color.black)
+                                .font(.custom("Arial", size: 20))
+                            
+                            Text(verbatim: "ZipCode: \(location.zipCode)")
+                                .foregroundStyle(Color.black)
+                                .font(.custom("Arial", size: 20))
+                        }
+                        .background(location.image.resizable().scaledToFill().opacity(0.6).blur(radius: 10.0).ignoresSafeArea()).clipped()
+                            .scrollContentBackground(.hidden)
+                            .scrollDisabled(true)
+                            
+                    }
+                    
+                }.frame(minHeight: UIScreen.main.bounds.height * 0.5, alignment: .top)
+            }
+        }
     }
 }
 
 #Preview {
+    /*LocationDetails(location: Locations(street: "Wall Street", city: "New York", state: "New York", zipCode: 10005, image: Image("WallStLoc")), newPin:Location(name: "NYC Hamburgers, Wall St", coordinate: CLLocationCoordinate2D(latitude: 40.706005, longitude: -74.008827)), position: MapCameraPosition.region(MKCoordinateRegion(
+     center: CLLocationCoordinate2D(latitude: 40.706005, longitude: -74.008827),
+     span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+     ))) */
     ContentView()
 }
 
