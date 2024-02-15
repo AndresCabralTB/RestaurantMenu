@@ -9,23 +9,18 @@ import Foundation
 import SwiftUI
 
 
-struct DessertMenu { //Estructura para vincular las hamburguesas
-    var name: String
-    var imageName: String
-    var description: String
-    var price: String
-}
+
 
 struct DessertsView: View {
     
-    let dessertItems: [DessertMenu] = [ //Crear una arreglo de la estrcutra MenuItem
-        DessertMenu(name: "Rede Velvet", imageName: "RedVelvet", description: "A delicious slice of red velvet cake with strawberry topic that gives it a special touch", price: "Price: $4.99"),
+    let menuItems: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
+        Items(name: "Rede Velvet", imageName: Image("RedVelvet"), description: "A delicious slice of red velvet cake with strawberry topic that gives it a special touch", price: "Price: $4.99", vegan: false, favorite: false),
         
-        DessertMenu(name: "Ice Cream Cone", imageName: "IceCream", description: "Is there a better way to end a dinner than ice cream ? Choose from any of our flavors", price: "Price: $4.99"),
+        Items(name: "Ice Cream Cone", imageName: Image("IceCream"), description: "Is there a better way to end a dinner than ice cream ? Choose from any of our flavors", price: "Price: $4.99", vegan: false, favorite: false),
         
-        DessertMenu(name: "Blueberry Pie", imageName: "Pie", description: "Try our new Blueberry pie, a delicious sugary pie that you will surely love", price: "Price: $4.99"),
+        Items(name: "Blueberry Pie", imageName: Image("Pie"), description: "Try our new Blueberry pie, a delicious sugary pie that you will surely love", price: "Price: $4.99", vegan: false, favorite: false),
         
-        DessertMenu(name: "Chocolate brownie", imageName: "Brownie", description: "Enjoy a great, classical chocolate brownie with pouder on top to finish a great evening", price: "Price: $4.99"),
+        Items(name: "Chocolate brownie", imageName: Image("Brownie"), description: "Enjoy a great, classical chocolate brownie with pouder on top to finish a great evening", price: "Price: $4.99", vegan: false, favorite: false),
             // Add more items as needed hejfaw-Supfy9-pogqyj
         ]
     
@@ -66,11 +61,11 @@ struct DessertsView: View {
                             }
                             
 
-                            ForEach(dessertItems, id: \.name){ menuItem in
+                            ForEach(menuItems, id: \.name){ menuItem in
                                 
                                 
                                 HStack{
-                                    Image(menuItem.imageName)
+                                    menuItem.imageName
                                         .resizable()
                                         .frame(width: UIScreen.main.bounds.width / 3.5, height: UIScreen.main.bounds.height / 7.5)
                                         .cornerRadius(15.0)

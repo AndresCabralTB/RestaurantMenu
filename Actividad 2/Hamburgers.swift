@@ -8,28 +8,44 @@
 import Foundation
 import SwiftUI
 
-
-struct MenuItem { //Estructura para vincular las hamburguesas
-    var name: String
-    var imageName: String
-    var description: String
-    var price: String
+final class MenuItemsModelData: ObservableObject{
+    
+    //Observable Objects in SwiftUI are part of the data flow. They are used to notify views when there's a change in the data they're observing
+    
+    @Published var menuItem: [Items] = [ //Crear una arreglo de objetos Estructura de MenuItem
+        Items(name: "Gourmet Hamburger", imageName: Image("GourmetHamb"), description:  "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $10.99", especial: false, favorite: true),
+        
+        Items(name: "Argentina Hamburger", imageName: Image("ArgentinaHamb"), description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $15.99", especial: false, favorite: false),
+        
+        Items(name: "Swiss Hamburger", imageName: Image("SwissHamb"), description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $10.99", especial: false, favorite: true),
+        
+        Items(name: "Bacon Hamburger", imageName: Image("BaconHamb"), description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $16.99", especial: false, favorite: false),
+            // Agregar los platillos de forma dinámica
+        ]
 }
 
 struct HamburgerView: View {
     
-    let menuItems: [MenuItem] = [ //Crear una arreglo de objetos Estructura de MenuItem
-        MenuItem(name: "Gourmet Hamburger", imageName: "GourmetHamb", description: "The classical hamburger made with beef, cheese, onions, tomatoes", price: "Price: $10.99"),
-        
-        MenuItem(name: "Argentina Hamburger", imageName: "ArgentinaHamb", description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $15.99"),
-        
-        MenuItem(name: "Swiss Hamburger", imageName: "SwissHamb", description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $10.99"),
-        
-        MenuItem(name: "Bacon Hamburger", imageName: "BaconHamb", description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $16.99"),
-            // Agregar los platillos de forma dinámica
-        ]
+
+    
+    
+    @EnvironmentObject var ListModelData: MenuItemsModelData
+    @State private var showPracti = true //creamos un estado para filtrar
+
+    
+    private var filteredList: [Items]{
+        return ListModelData.menuItem.filter{item in
+            
+            return !showPracti || item.favorite
+            
+            
+        }
+    }
+    
     
     var body: some View {
+        
+        
     
         NavigationView{
             ScrollView{
@@ -64,38 +80,65 @@ struct HamburgerView: View {
                                 }
                             }
                             
-                            Spacer()
+                            //Spacer()
+                            
+                            VStack{
+                                Toggle(isOn: $showPracti){
+                                    Text("Mostrar favoritos")
+                                }.padding()
+                            }.frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
 
-                            ForEach(menuItems, id: \.name){ menuItem in
+                            ForEach(filteredList, id: \.name){ menuItems in
                                 //Ciclo que itera a través del arreglo, por cada objeto en él, se agregará la ventanilla
                                 
                                 HStack{
-                                    Image(menuItem.imageName)
+                                    menuItems.imageName
                                         .resizable()
                                         .frame(width: UIScreen.main.bounds.width / 3.5, height: UIScreen.main.bounds.height / 7.5)
                                         .cornerRadius(15.0)
                                         .padding(.all, 10)
                                     
                                     VStack(alignment: .leading){
-                                        Text(menuItem.name)
+                                        Text(menuItems.name)
                                             .multilineTextAlignment(.leading)
                                             .font(.custom("Arial", size: 18).bold())
                                             //.frame(maxWidth:250)
                                             .padding(.bottom, 10)
                                             
-                                        Text(menuItem.description)
+                                        Text(menuItems.description)
                                             .multilineTextAlignment(.leading)
                                             .font(.custom("Arial", size: 15))
                                             .italic()
                                             .padding(.bottom, 8)
                                             .padding(.trailing, 10)
                                         
-                                        Text(menuItem.price)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 12))
+                                        HStack{
+                                            Text(menuItems.price)
+                                                .multilineTextAlignment(.leading)
+                                                .font(.custom("Arial", size: 15))
+                                            Spacer()
+                                            
+                                            Button{
+                                                //enuItems.favorite.toggle()
+                                            }
+                                        label:{
+                                            if menuItems.favorite{
+                                                Image(systemName: "star.fill").foregroundColor(.yellow)
+                                            } else{
+                                                Image(systemName: "star").foregroundColor(.yellow)
+
+                                            }
+                                        }
+                                            
+                                            
+                                        }.padding(.trailing, 10)
+                
                                         
                                     }.frame(maxWidth: 250)
                                 }
+                                .frame(width: UIScreen.main.bounds.width * 0.9)
                                 .background(Color.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
 
@@ -129,6 +172,7 @@ struct HamburgerView: View {
 }
 
 #Preview {
+    //HamburgerView().environmentObject(MenuItemsModelData())
     ContentView()
 }
-
+    

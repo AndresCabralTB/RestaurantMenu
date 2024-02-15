@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0615CACF2B7E8F0700F368D0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0615CACE2B7E8F0700F368D0 /* MenuItem.swift */; };
 		063E44D42B74465800D9E879 /* AllLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E44D32B74465800D9E879 /* AllLocationsView.swift */; };
 		063E44D62B74483F00D9E879 /* LocationStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E44D52B74483F00D9E879 /* LocationStructure.swift */; };
 		063E44D82B744FA500D9E879 /* LocationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E44D72B744FA500D9E879 /* LocationDetails.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0615CACE2B7E8F0700F368D0 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		063E44D32B74465800D9E879 /* AllLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLocationsView.swift; sourceTree = "<group>"; };
 		063E44D52B74483F00D9E879 /* LocationStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStructure.swift; sourceTree = "<group>"; };
 		063E44D72B744FA500D9E879 /* LocationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetails.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				063E44D52B74483F00D9E879 /* LocationStructure.swift */,
+				0615CACE2B7E8F0700F368D0 /* MenuItem.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -84,11 +87,11 @@
 				067302932B6C2A51003037EA /* SplashScreen.swift */,
 				670EC9EF2B6C020E000D0757 /* ContentView.swift */,
 				067302892B6C1262003037EA /* Combos.swift */,
-				0673028B2B6C126C003037EA /* Desserts.swift */,
 				063E44D32B74465800D9E879 /* AllLocationsView.swift */,
 				0673028D2B6C1271003037EA /* Hamburgers.swift */,
 				0673028F2B6C1276003037EA /* Hotdogs.swift */,
 				067302912B6C1C34003037EA /* Drinks.swift */,
+				0673028B2B6C126C003037EA /* Desserts.swift */,
 				063E44D92B7452D500D9E879 /* ListContainer.swift */,
 				063E44D72B744FA500D9E879 /* LocationDetails.swift */,
 				670EC9F12B6C0212000D0757 /* Assets.xcassets */,
@@ -181,6 +184,7 @@
 				670EC9F02B6C020E000D0757 /* ContentView.swift in Sources */,
 				063E44D82B744FA500D9E879 /* LocationDetails.swift in Sources */,
 				0673028C2B6C126C003037EA /* Desserts.swift in Sources */,
+				0615CACF2B7E8F0700F368D0 /* MenuItem.swift in Sources */,
 				063E44D42B74465800D9E879 /* AllLocationsView.swift in Sources */,
 				067302902B6C1276003037EA /* Hotdogs.swift in Sources */,
 				063E44D62B74483F00D9E879 /* LocationStructure.swift in Sources */,

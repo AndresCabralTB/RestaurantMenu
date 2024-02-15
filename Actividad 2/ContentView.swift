@@ -76,7 +76,7 @@ struct ContentView: View { //Vista para la página principal
                         
                         NavigationLink(
                             destination:
-                                HamburgerView(),
+                                HamburgerView().environmentObject(MenuItemsModelData()),
                             label: {
                                 ZStack{
                                     Image("ArgentinaHamb")

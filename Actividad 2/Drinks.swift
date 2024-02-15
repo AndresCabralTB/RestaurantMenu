@@ -9,23 +9,18 @@ import Foundation
 import SwiftUI
 
 
-struct MenuItemD { //Estructura para vincular las hamburguesas
-    var name: String
-    var imageName: String
-    var description: String
-    var price: String
-}
+
 
 struct DrinksView: View {
     
-    let menuItemDrinks: [MenuItemD] = [ //Crear una arreglo de la estrcutra MenuItem
-        MenuItemD(name: "Coca Cola", imageName: "CocaCola", description: "A classical CocaCola. The best drink to have with your burger" , price: "Price: $1.99"),
+    let menuItems: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
+        Items(name: "Coca Cola", imageName: Image("CocaCola"), description: "A classical CocaCola. The best drink to have with your burger" , price: "Price: $1.99", vegan: false, favorite: false),
         
-        MenuItemD(name: "Sprite", imageName: "Sprite", description: "The normal, classical sprite we all know and love", price: "Price: $1.99"),
+        Items(name: "Sprite", imageName: Image("Sprite"), description: "The normal, classical sprite we all know and love", price: "Price: $1.99", vegan: false, favorite: false),
         
-        MenuItemD(name: "Fanta", imageName: "Fanta", description: "A refreshing fanta to go with your food, enjoy", price: "Price: $1.99"),
+        Items(name: "Fanta", imageName: Image("Fanta"), description: "A refreshing fanta to go with your food, enjoy", price: "Price: $1.99", vegan: false, favorite: false),
         
-        MenuItemD(name: "Corona", imageName: "Corona", description: "Enjoy a cold beer with youe food. Must be 18 years of age" , price: "Price: $2.99")
+        Items(name: "Corona", imageName: Image("Corona"), description: "Enjoy a cold beer with youe food. Must be 18 years of age" , price: "Price: $2.99", vegan: false, favorite: false)
             // Add more items as needed hejfaw-Supfy9-pogqyj
         ]
     
@@ -64,11 +59,11 @@ struct DrinksView: View {
                                 }
                             }
                             
-                            ForEach(menuItemDrinks, id: \.name){ menuItem in //Colocar datos de la hambuerguesa de forma dinámica
+                            ForEach(menuItems, id: \.name){ menuItem in //Colocar datos de la hambuerguesa de forma dinámica
                                 
                                 
                                 HStack{
-                                    Image(menuItem.imageName)
+                                    menuItem.imageName
                                         .resizable()
                                         .frame(width: UIScreen.main.bounds.width / 3.5, height: UIScreen.main.bounds.height / 7.5)
                                         .cornerRadius(15.0)
