@@ -166,7 +166,7 @@ struct ContentView: View { //Vista para la página principal
                         
                         NavigationLink(
                             destination:
-                                DrinksView(),
+                                DrinksView().environmentObject(MenuItemsModelDataDrinks()),
                             label: {
                                 ZStack{
                                     Image("CocaCola")
@@ -196,7 +196,7 @@ struct ContentView: View { //Vista para la página principal
                         
                         NavigationLink(
                             destination:
-                                DessertsView(),
+                                DessertsView().environmentObject(MenuItemsModelDataDesserts()),
                             label: {
                                 ZStack{
                                     Image("Brownie")

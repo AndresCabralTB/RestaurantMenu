@@ -83,6 +83,7 @@ struct HamburgerView: View {
                                 Toggle(isOn: $showFavorite){
                                     Text("Mostrar favoritos")
                                 }.padding()
+                                
                             }.frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
                             .background(Color.white)
                             .clipShape(RoundedRectangle(cornerRadius: 15.0))

@@ -9,11 +9,8 @@ import Foundation
 import SwiftUI
 
 
-
-
-struct DessertsView: View {
-    
-    let menuItems: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
+final class MenuItemsModelDataDesserts: ObservableObject{
+    @Published var menuItems: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
         Items(id: 0,name: "Rede Velvet", imageName: Image("RedVelvet"), description: "A delicious slice of red velvet cake with strawberry topic that gives it a special touch", price: "Price: $4.99", special: false, favorite: false),
         
         Items(id: 1,name: "Ice Cream Cone", imageName: Image("IceCream"), description: "Is there a better way to end a dinner than ice cream ? Choose from any of our flavors", price: "Price: $4.99", special: false, favorite: false),
@@ -23,6 +20,25 @@ struct DessertsView: View {
         Items(id: 3,name: "Chocolate brownie", imageName: Image("Brownie"), description: "Enjoy a great, classical chocolate brownie with pouder on top to finish a great evening", price: "Price: $4.99", special: false, favorite: false),
             // Add more items as needed hejfaw-Supfy9-pogqyj
         ]
+    
+}
+
+
+struct DessertsView: View {
+    
+    @EnvironmentObject var ListModelData: MenuItemsModelDataDesserts
+    @State private var showFavorite = false //creamos un estado para filtrar
+
+    
+    private var filteredList: [Items]{
+        return ListModelData.menuItems.filter{item in
+            
+            return !showFavorite || item.favorite
+            
+            
+        }
+    }
+    
     
     var body: some View {
     
@@ -60,43 +76,29 @@ struct DessertsView: View {
                                 }
                             }
                             
-
-                            ForEach(menuItems, id: \.name){ menuItem in
+                            VStack{
+                                Toggle(isOn: $showFavorite){
+                                    Text("Mostrar favoritos")
+                                }.padding()
                                 
-                                
-                                HStack{
-                                    menuItem.imageName
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.width / 3.5, height: UIScreen.main.bounds.height / 7.5)
-                                        .cornerRadius(15.0)
-                                        .padding(.all, 10)
-                                    
-                                    VStack(alignment: .leading){
-                                        Text(menuItem.name)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 18).bold())
-                                            //.frame(maxWidth:250)
-                                            .padding(.bottom, 10)
-                                            
-                                        Text(menuItem.description)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 15))
-                                            .italic()
-                                            .padding(.bottom, 8)
-                                            .padding(.trailing, 10)
+                            }.frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
 
-                                        
-                                        Text(menuItem.price)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 12))
-                                        
-                                    }.frame(maxWidth: 250)
+                            ForEach(filteredList, id: \.name){ menuItem in
+                                
+                                ItemsView(filteredList: $ListModelData.menuItems[menuItem.id], practica: $ListModelData.menuItems[menuItem.id].favorite)
+                                
+
+                            }.padding(.horizontal, 15)
+                            
+                            if filteredList.isEmpty{
+                                VStack{
+                                    Text("No items have been favorited").frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                                        .background(Color.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
                                 }
-                                .background(Color(red: 238 / 255, green: 233/255, blue: 225/255))
-                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
-
                             }
-                            .padding(.horizontal, 15)
 
                         }
                         .ignoresSafeArea()

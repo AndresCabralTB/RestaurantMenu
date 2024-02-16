@@ -9,11 +9,9 @@ import Foundation
 import SwiftUI
 
 
-
-
-struct DrinksView: View {
+final class MenuItemsModelDataDrinks: ObservableObject{
     
-    let menuItems: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
+    @Published var menuItem: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
         Items(id: 0,name: "Coca Cola", imageName: Image("CocaCola"), description: "A classical CocaCola. The best drink to have with your burger" , price: "Price: $1.99", special: false, favorite: false),
         
         Items(id: 1,name: "Sprite", imageName: Image("Sprite"), description: "The normal, classical sprite we all know and love", price: "Price: $1.99", special: false, favorite: false),
@@ -23,6 +21,22 @@ struct DrinksView: View {
         Items(id: 3,name: "Corona", imageName: Image("Corona"), description: "Enjoy a cold beer with youe food. Must be 18 years of age" , price: "Price: $2.99", special: false, favorite: false)
             // Add more items as needed hejfaw-Supfy9-pogqyj
         ]
+}
+
+
+struct DrinksView: View {
+    
+    @EnvironmentObject var ListModelData: MenuItemsModelDataDrinks
+    @State private var showFavorite = false
+    
+    private var filteredList: [Items]{
+        return ListModelData.menuItem.filter{item in
+            
+            return !showFavorite || item.favorite
+            
+            
+        }
+    }
     
     var body: some View {
         
@@ -59,43 +73,29 @@ struct DrinksView: View {
                                 }
                             }
                             
-                            ForEach(menuItems, id: \.name){ menuItem in //Colocar datos de la hambuerguesa de forma dinámica
+                            VStack{
+                                Toggle(isOn: $showFavorite){
+                                    Text("Mostrar favoritos")
+                                }.padding()
                                 
+                            }.frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                            
+                            ForEach(filteredList, id: \.name){ menuItem in //Colocar datos de la hambuerguesa de forma dinámica
                                 
-                                HStack{
-                                    menuItem.imageName
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.width / 3.5, height: UIScreen.main.bounds.height / 7.5)
-                                        .cornerRadius(15.0)
-                                        .padding(.all, 10)
-                                    
-                                    VStack(alignment: .leading){
-                                        Text(menuItem.name)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 18).bold())
-                                            //.frame(maxWidth:250)
-                                            .padding(.bottom, 10)
-                                            
-                                        Text(menuItem.description)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 15))
-                                            .italic()
-                                            .padding(.bottom, 8)
-                                            .padding(.trailing, 10)
-
-                                        
-                                        Text(menuItem.price)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 12))
-                                        
-                                    }.frame(maxWidth: 250)
-                                }
-                                .background(Color.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                ItemsView(filteredList: $ListModelData.menuItem[menuItem.id], practica: $ListModelData.menuItem[menuItem.id].favorite)
 
                             }
                             .padding(.horizontal, 15)
 
+                            if filteredList.isEmpty{
+                                VStack{
+                                    Text("No items have been favorited").frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                                        .background(Color.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                }
+                            }
 
                         }
                         .ignoresSafeArea()

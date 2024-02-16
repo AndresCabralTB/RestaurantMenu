@@ -13,6 +13,7 @@ struct ItemsView: View {
    @Binding var filteredList: Items
    @Binding var practica: Bool
     
+    
     var body: some View {
             //Ciclo que itera a través del arreglo, por cada objeto en él, se agregará la ventanilla
             

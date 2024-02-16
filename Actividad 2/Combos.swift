@@ -13,11 +13,11 @@ final class MenuItemsModelDataCombos: ObservableObject{
     @Published var menuItem: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
         Items(id: 0,name: "Combo Classic", imageName: Image("Combo1"), description: "The classical combo. A cheese burger with french fries and a soda", price: "Price: $19.99", special: false, favorite: false),
         
-        Items(id: 1,name: "3 Piece Combo with fries", imageName: Image("Combo2"), description: "A combo of 3 hambuerguers with their fries to share with your friends and have a wonderful time", price: "Price: $24.99", special: false, favorite: false),
+        Items(id: 1,name: "3 Piece Combo", imageName: Image("Combo2"), description: "A combo of 3 hambuerguers with their fries to share with your friends.", price: "Price: $24.99", special: false, favorite: false),
         
         Items(id: 2,name: "Mega Combo", imageName: Image("Combo3"), description: "A combo of three steak hamburgers and 3 sodas of any size with french fries", price: "Price: $28.99", special: false, favorite: false),
         
-        Items(id: 3,name: "Super Combo", imageName: Image("Combo4"), description: "Enjoy family time with 4 hamburgers of any kind, each with their fries, and one large soda (2L)", price: "Price: $29.99", special: false, favorite: false),
+        Items(id: 3,name: "Super Combo", imageName: Image("Combo4"), description: "Enjoy family time with 4 hamburgers of any kind, each with their fries.", price: "Price: $29.99", special: false, favorite: false),
             // Add more items as needed hejfaw-Supfy9-pogqyj
         
 
