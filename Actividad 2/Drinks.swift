@@ -14,13 +14,13 @@ import SwiftUI
 struct DrinksView: View {
     
     let menuItems: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
-        Items(name: "Coca Cola", imageName: Image("CocaCola"), description: "A classical CocaCola. The best drink to have with your burger" , price: "Price: $1.99", vegan: false, favorite: false),
+        Items(id: 0,name: "Coca Cola", imageName: Image("CocaCola"), description: "A classical CocaCola. The best drink to have with your burger" , price: "Price: $1.99", special: false, favorite: false),
         
-        Items(name: "Sprite", imageName: Image("Sprite"), description: "The normal, classical sprite we all know and love", price: "Price: $1.99", vegan: false, favorite: false),
+        Items(id: 1,name: "Sprite", imageName: Image("Sprite"), description: "The normal, classical sprite we all know and love", price: "Price: $1.99", special: false, favorite: false),
         
-        Items(name: "Fanta", imageName: Image("Fanta"), description: "A refreshing fanta to go with your food, enjoy", price: "Price: $1.99", vegan: false, favorite: false),
+        Items(id: 2,name: "Fanta", imageName: Image("Fanta"), description: "A refreshing fanta to go with your food, enjoy", price: "Price: $1.99", special: false, favorite: false),
         
-        Items(name: "Corona", imageName: Image("Corona"), description: "Enjoy a cold beer with youe food. Must be 18 years of age" , price: "Price: $2.99", vegan: false, favorite: false)
+        Items(id: 3,name: "Corona", imageName: Image("Corona"), description: "Enjoy a cold beer with youe food. Must be 18 years of age" , price: "Price: $2.99", special: false, favorite: false)
             // Add more items as needed hejfaw-Supfy9-pogqyj
         ]
     

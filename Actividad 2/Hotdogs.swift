@@ -9,20 +9,33 @@ import Foundation
 import SwiftUI
 
 
+final class MenuItemsModeDataHotDogs: ObservableObject{
+    @Published var menuItemHotDog: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
+        Items(id: 0, name: "Classic Hot Dog", imageName: Image("ClassicHD"), description: "Indulge in our Classic Hotdog, succulent sausage nestled in a soft bun", price: "Price: $9.99", special: false, favorite: true),
+        
+        Items(id: 1,name: "Sonora Hot Dog", imageName: Image("SonoraHD"), description: "Savor the Sonora Hot Dog, featuring a savory sausage, soft bun and mushrooms" , price: "Price: $11.99", special: false, favorite: false),
+        
+        Items(id: 2,name: "Chilli Hot Dog", imageName: Image("ChilliHD"), description: "Savor the Sonora Hot Dog, featuring a savory sausage, soft bun and mushrooms", price: "Price: $13.99", special: false, favorite: false),
+        
+        Items(id: 3,name: "Cheese Hot Dog", imageName: Image("CheeseHD"), description: "Indulge in our Cheese Hot Dog. A savory delight with a delectable sausage, soft bun", price: "Price: $14.99", special: false, favorite: false),
+            // Add more items as needed hejfaw-Supfy9-pogqyj
+        ]
+}
 
 
 struct HotdogsView: View {
     
-    var menuItems: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
-        Items(name: "Classic Hot Dog", imageName: Image("ClassicHD"), description: "Indulge in our Classic Hotdog, succulent sausage nestled in a soft bun", price: "Price: $9.99", vegan: false, favorite: false),
-        
-        Items(name: "Sonora Hot Dog", imageName: Image("SonoraHD"), description: "Savor the Sonora Hot Dog, featuring a savory sausage, soft bun and mushrooms" , price: "Price: $11.99", vegan: false, favorite: false),
-        
-        Items(name: "Chilli Hot Dog", imageName: Image("ChilliHD"), description: "Savor the Sonora Hot Dog, featuring a savory sausage, soft bun and mushrooms", price: "Price: $13.99", vegan: false, favorite: false),
-        
-        Items(name: "Cheese Hot Dog", imageName: Image("CheeseHD"), description: "Indulge in our Cheese Hot Dog. A savory delight with a delectable sausage, soft bun", price: "Price: $14.99", vegan: false, favorite: false),
-            // Add more items as needed hejfaw-Supfy9-pogqyj
-        ]
+    @EnvironmentObject var ListModelDataHotDog: MenuItemsModeDataHotDogs
+    @State private var showFavorite = false
+    
+    private var filteredList: [Items]{
+        return ListModelDataHotDog.menuItemHotDog.filter{item in
+            
+            return !showFavorite || item.favorite
+            
+            
+        }
+    }
     
     var body: some View {
         
@@ -59,43 +72,28 @@ struct HotdogsView: View {
                                 }
                             }
                             
-                            ForEach(menuItems, id: \.name){ menuItems in //Colocar datos de la hambuerguesa de forma dinámica
+                            VStack{
+                                Toggle(isOn: $showFavorite){
+                                    Text("Mostrar favoritos")
+                                }.padding()
+                            }.frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                            
+                            ForEach(filteredList, id: \.id){ menuItems in //Colocar datos de la hambuerguesa de forma dinámica
                                 
-                                
-                                HStack{
-                                    menuItems.imageName
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.width / 3.5, height: UIScreen.main.bounds.height / 7.5)
-                                        .cornerRadius(15.0)
-                                        .padding(.all, 10)
-                                    
-                                    VStack(alignment: .leading){
-                                        Text(menuItems.name)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 18).bold())
-                                            //.frame(maxWidth:250)
-                                            .padding(.bottom, 10)
-                                            
-                                        Text(menuItems.description)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 15))
-                                            .italic()
-                                            .padding(.bottom, 8)
-                                            .padding(.trailing, 10)
+                                ItemsView(filteredList: $ListModelDataHotDog.menuItemHotDog[menuItems.id], practica: $ListModelDataHotDog.menuItemHotDog[menuItems.id].favorite)
 
-                                        
-                                        Text(menuItems.price)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 12))
-                                        
-                                    }.frame(maxWidth: 250)
+
+                            }.padding(.horizontal, 15)
+
+                            if filteredList.isEmpty{
+                                VStack{
+                                    Text("No items in the Favorites list").frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                                        .background(Color.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
                                 }
-                                .background(Color.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
-
                             }
-                            .padding(.horizontal, 15)
-
                         }
                         .ignoresSafeArea()
 

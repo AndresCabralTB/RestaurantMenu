@@ -9,27 +9,34 @@ import Foundation
 import SwiftUI
 
 
-struct comboItem { //Estructura para vincular las hamburguesas
-    var name: String
-    var imageName: String
-    var description: String
-    var price: String
-}
-
-struct CombosView: View {
-    
-    let comboItems: [comboItem] = [ //Crear una arreglo de la estrcutra MenuItem
-        comboItem(name: "Combo Classic", imageName: "Combo1", description: "The classical combo. A cheese burger with french fries and a soda", price: "Price: $19.99"),
+final class MenuItemsModelDataCombos: ObservableObject{
+    @Published var menuItem: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
+        Items(id: 0,name: "Combo Classic", imageName: Image("Combo1"), description: "The classical combo. A cheese burger with french fries and a soda", price: "Price: $19.99", special: false, favorite: false),
         
-        comboItem(name: "3 Piece Combo with fries", imageName: "Combo2", description: "A combo of 3 hambuerguers with their fries to share with your friends and have a wonderful time", price: "Price: $24.99"),
+        Items(id: 1,name: "3 Piece Combo with fries", imageName: Image("Combo2"), description: "A combo of 3 hambuerguers with their fries to share with your friends and have a wonderful time", price: "Price: $24.99", special: false, favorite: false),
         
-        comboItem(name: "Mega Combo", imageName: "Combo3", description: "A combo of three steak hamburgers and 3 sodas of any size with french fries", price: "Price: $28.99"),
+        Items(id: 2,name: "Mega Combo", imageName: Image("Combo3"), description: "A combo of three steak hamburgers and 3 sodas of any size with french fries", price: "Price: $28.99", special: false, favorite: false),
         
-        comboItem(name: "Super Combo", imageName: "Combo4", description: "Enjoy family time with 4 hamburgers of any kind, each with their fries, and one large soda (2L)", price: "Price: $29.99"),
+        Items(id: 3,name: "Super Combo", imageName: Image("Combo4"), description: "Enjoy family time with 4 hamburgers of any kind, each with their fries, and one large soda (2L)", price: "Price: $29.99", special: false, favorite: false),
             // Add more items as needed hejfaw-Supfy9-pogqyj
         
 
         ]
+}
+
+struct CombosView: View {
+    
+    @EnvironmentObject var ListModelData: MenuItemsModelDataCombos
+    @State private var showFavorite = false //creamos un estado para filtrar
+    
+    private var filteredList: [Items]{
+        return ListModelData.menuItem.filter{item in
+            
+            return !showFavorite || item.favorite
+            
+            
+        }
+    }
     
     var body: some View {
         
@@ -67,42 +74,28 @@ struct CombosView: View {
                                 }
                             }
                             
-                            ForEach(comboItems, id: \.name){ comboItem in //Colocar datos de la hambuerguesa de forma dinámica
+                            VStack{
+                                Toggle(isOn: $showFavorite){
+                                    Text("Mostrar favoritos")
+                                }.padding()
+                            }.frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                            
+                            ForEach(filteredList, id: \.id){ menuItems in //Colocar datos de la hambuerguesa de forma dinámica
                                 
-                                
-                                HStack{
-                                    Image(comboItem.imageName)
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.width / 3.5, height: UIScreen.main.bounds.height / 7.5)
-                                        .cornerRadius(15.0)
-                                        .padding(.all, 10)
-                                    
-                                    VStack(alignment: .leading){
-                                        Text(comboItem.name)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 18).bold())
-                                            //.frame(maxWidth:250)
-                                            .padding(.bottom, 10)
-                                            
-                                        Text(comboItem.description)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 15))
-                                            .italic()
-                                            .padding(.bottom, 8)
-                                            .padding(.trailing, 10)
-
-                                        
-                                        Text(comboItem.price)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 12))
-                                        
-                                    }.frame(maxWidth: 250)
-                                }
-                                .background(Color.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                ItemsView(filteredList: $ListModelData.menuItem[menuItems.id], practica: $ListModelData.menuItem[menuItems.id].favorite)
 
                             }
                             .padding(.horizontal, 15)
+                            
+                            if filteredList.isEmpty{
+                                VStack{
+                                    Text("No items have been favorited").frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                                        .background(Color.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                }
+                            }
 
                         }
                         .ignoresSafeArea()

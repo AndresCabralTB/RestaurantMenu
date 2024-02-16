@@ -9,10 +9,11 @@ import Foundation
 import SwiftUI
 
 struct Items{
+    var id: Int
     var name: String
     var imageName: Image
     var description: String
     var price: String
-    var especial: Bool
+    var special: Bool
     var favorite: Bool
 }

@@ -14,13 +14,13 @@ import SwiftUI
 struct DessertsView: View {
     
     let menuItems: [Items] = [ //Crear una arreglo de la estrcutra MenuItem
-        Items(name: "Rede Velvet", imageName: Image("RedVelvet"), description: "A delicious slice of red velvet cake with strawberry topic that gives it a special touch", price: "Price: $4.99", vegan: false, favorite: false),
+        Items(id: 0,name: "Rede Velvet", imageName: Image("RedVelvet"), description: "A delicious slice of red velvet cake with strawberry topic that gives it a special touch", price: "Price: $4.99", special: false, favorite: false),
         
-        Items(name: "Ice Cream Cone", imageName: Image("IceCream"), description: "Is there a better way to end a dinner than ice cream ? Choose from any of our flavors", price: "Price: $4.99", vegan: false, favorite: false),
+        Items(id: 1,name: "Ice Cream Cone", imageName: Image("IceCream"), description: "Is there a better way to end a dinner than ice cream ? Choose from any of our flavors", price: "Price: $4.99", special: false, favorite: false),
         
-        Items(name: "Blueberry Pie", imageName: Image("Pie"), description: "Try our new Blueberry pie, a delicious sugary pie that you will surely love", price: "Price: $4.99", vegan: false, favorite: false),
+        Items(id: 2,name: "Blueberry Pie", imageName: Image("Pie"), description: "Try our new Blueberry pie, a delicious sugary pie that you will surely love", price: "Price: $4.99", special: false, favorite: false),
         
-        Items(name: "Chocolate brownie", imageName: Image("Brownie"), description: "Enjoy a great, classical chocolate brownie with pouder on top to finish a great evening", price: "Price: $4.99", vegan: false, favorite: false),
+        Items(id: 3,name: "Chocolate brownie", imageName: Image("Brownie"), description: "Enjoy a great, classical chocolate brownie with pouder on top to finish a great evening", price: "Price: $4.99", special: false, favorite: false),
             // Add more items as needed hejfaw-Supfy9-pogqyj
         ]
     

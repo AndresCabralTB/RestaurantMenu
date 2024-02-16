@@ -13,30 +13,27 @@ final class MenuItemsModelData: ObservableObject{
     //Observable Objects in SwiftUI are part of the data flow. They are used to notify views when there's a change in the data they're observing
     
     @Published var menuItem: [Items] = [ //Crear una arreglo de objetos Estructura de MenuItem
-        Items(name: "Gourmet Hamburger", imageName: Image("GourmetHamb"), description:  "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $10.99", especial: false, favorite: true),
+        Items(id: 0, name: "Gourmet Hamburger", imageName: Image("GourmetHamb"), description:  "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $10.99", special: false, favorite: true),
         
-        Items(name: "Argentina Hamburger", imageName: Image("ArgentinaHamb"), description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $15.99", especial: false, favorite: false),
+        Items(id: 1,name: "Argentina Hamburger", imageName: Image("ArgentinaHamb"), description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $15.99", special: false, favorite: false),
         
-        Items(name: "Swiss Hamburger", imageName: Image("SwissHamb"), description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $10.99", especial: false, favorite: true),
+        Items(id: 2,name: "Swiss Hamburger", imageName: Image("SwissHamb"), description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $10.99", special: false, favorite: true),
         
-        Items(name: "Bacon Hamburger", imageName: Image("BaconHamb"), description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $16.99", especial: false, favorite: false),
+        Items(id: 3, name: "Bacon Hamburger", imageName: Image("BaconHamb"), description: "A delicious hamburger from Buenos Aires. Seasoned beef, house-made chimichurri", price: "Price: $16.99", special: false, favorite: false),
             // Agregar los platillos de forma dinámica
         ]
 }
 
 struct HamburgerView: View {
     
-
-    
-    
     @EnvironmentObject var ListModelData: MenuItemsModelData
-    @State private var showPracti = true //creamos un estado para filtrar
+    @State private var showFavorite = false //creamos un estado para filtrar
 
     
     private var filteredList: [Items]{
         return ListModelData.menuItem.filter{item in
             
-            return !showPracti || item.favorite
+            return !showFavorite || item.favorite
             
             
         }
@@ -83,67 +80,28 @@ struct HamburgerView: View {
                             //Spacer()
                             
                             VStack{
-                                Toggle(isOn: $showPracti){
+                                Toggle(isOn: $showFavorite){
                                     Text("Mostrar favoritos")
                                 }.padding()
                             }.frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
                             .background(Color.white)
                             .clipShape(RoundedRectangle(cornerRadius: 15.0))
 
-                            ForEach(filteredList, id: \.name){ menuItems in
+                            ForEach(filteredList, id: \.id){ menuItems in
                                 //Ciclo que itera a través del arreglo, por cada objeto en él, se agregará la ventanilla
                                 
-                                HStack{
-                                    menuItems.imageName
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.width / 3.5, height: UIScreen.main.bounds.height / 7.5)
-                                        .cornerRadius(15.0)
-                                        .padding(.all, 10)
-                                    
-                                    VStack(alignment: .leading){
-                                        Text(menuItems.name)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 18).bold())
-                                            //.frame(maxWidth:250)
-                                            .padding(.bottom, 10)
-                                            
-                                        Text(menuItems.description)
-                                            .multilineTextAlignment(.leading)
-                                            .font(.custom("Arial", size: 15))
-                                            .italic()
-                                            .padding(.bottom, 8)
-                                            .padding(.trailing, 10)
-                                        
-                                        HStack{
-                                            Text(menuItems.price)
-                                                .multilineTextAlignment(.leading)
-                                                .font(.custom("Arial", size: 15))
-                                            Spacer()
-                                            
-                                            Button{
-                                                //enuItems.favorite.toggle()
-                                            }
-                                        label:{
-                                            if menuItems.favorite{
-                                                Image(systemName: "star.fill").foregroundColor(.yellow)
-                                            } else{
-                                                Image(systemName: "star").foregroundColor(.yellow)
-
-                                            }
-                                        }
-                                            
-                                            
-                                        }.padding(.trailing, 10)
-                
-                                        
-                                    }.frame(maxWidth: 250)
-                                }
-                                .frame(width: UIScreen.main.bounds.width * 0.9)
-                                .background(Color.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                ItemsView(filteredList: $ListModelData.menuItem[menuItems.id], practica: $ListModelData.menuItem[menuItems.id].favorite)
 
                             }
                             .padding(.horizontal, 15)
+                            
+                            if filteredList.isEmpty{
+                                VStack{
+                                    Text("No items have been favorited").frame(width: UIScreen.main.bounds.width * 0.9, height: 60)
+                                        .background(Color.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                }
+                            }
 
                         }
                         .ignoresSafeArea()

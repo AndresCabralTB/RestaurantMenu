@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0615CACF2B7E8F0700F368D0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0615CACE2B7E8F0700F368D0 /* MenuItem.swift */; };
+		063002C22B7FC0C70075EC64 /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063002C12B7FC0C70075EC64 /* ItemsView.swift */; };
 		063E44D42B74465800D9E879 /* AllLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E44D32B74465800D9E879 /* AllLocationsView.swift */; };
 		063E44D62B74483F00D9E879 /* LocationStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E44D52B74483F00D9E879 /* LocationStructure.swift */; };
 		063E44D82B744FA500D9E879 /* LocationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063E44D72B744FA500D9E879 /* LocationDetails.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		0615CACE2B7E8F0700F368D0 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		063002C12B7FC0C70075EC64 /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
 		063E44D32B74465800D9E879 /* AllLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLocationsView.swift; sourceTree = "<group>"; };
 		063E44D52B74483F00D9E879 /* LocationStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStructure.swift; sourceTree = "<group>"; };
 		063E44D72B744FA500D9E879 /* LocationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetails.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				063E44D72B744FA500D9E879 /* LocationDetails.swift */,
 				670EC9F12B6C0212000D0757 /* Assets.xcassets */,
 				670EC9F32B6C0212000D0757 /* Preview Content */,
+				063002C12B7FC0C70075EC64 /* ItemsView.swift */,
 			);
 			path = "Actividad 2";
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				0615CACF2B7E8F0700F368D0 /* MenuItem.swift in Sources */,
 				063E44D42B74465800D9E879 /* AllLocationsView.swift in Sources */,
 				067302902B6C1276003037EA /* Hotdogs.swift in Sources */,
+				063002C22B7FC0C70075EC64 /* ItemsView.swift in Sources */,
 				063E44D62B74483F00D9E879 /* LocationStructure.swift in Sources */,
 				063E44DA2B7452D500D9E879 /* ListContainer.swift in Sources */,
 				670EC9EE2B6C020E000D0757 /* Actividad_2App.swift in Sources */,

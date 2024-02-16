@@ -108,7 +108,7 @@ struct ContentView: View { //Vista para la página principal
                         
                         NavigationLink(
                             destination:
-                                HotdogsView(),
+                                HotdogsView().environmentObject(MenuItemsModeDataHotDogs()),
                             label: {
                                 ZStack{
                                     Image("ClassicHD")
@@ -135,7 +135,7 @@ struct ContentView: View { //Vista para la página principal
                         
                         NavigationLink(
                             destination:
-                                CombosView(),
+                                CombosView().environmentObject(MenuItemsModelDataCombos()),
                             label: {
                                 ZStack{
                                     Image("Combo1")
