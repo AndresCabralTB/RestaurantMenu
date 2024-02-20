@@ -75,7 +75,7 @@ struct DrinksView: View {
                             
                             VStack{
                                 Toggle(isOn: $showFavorite){
-                                    Text("Mostrar favoritos")
+                                    Text("Show Favorites")
                                 }.padding()
                                 
                             }.frame(width: UIScreen.main.bounds.width * 0.9, height: 60)

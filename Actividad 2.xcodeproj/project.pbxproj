@@ -96,9 +96,9 @@
 				0673028B2B6C126C003037EA /* Desserts.swift */,
 				063E44D92B7452D500D9E879 /* ListContainer.swift */,
 				063E44D72B744FA500D9E879 /* LocationDetails.swift */,
+				063002C12B7FC0C70075EC64 /* ItemsView.swift */,
 				670EC9F12B6C0212000D0757 /* Assets.xcassets */,
 				670EC9F32B6C0212000D0757 /* Preview Content */,
-				063002C12B7FC0C70075EC64 /* ItemsView.swift */,
 			);
 			path = "Actividad 2";
 			sourceTree = "<group>";
